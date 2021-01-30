@@ -1,18 +1,24 @@
-package builders
+package model.builders
 
 import java.util.ArrayList
 import java.util.function.Consumer
 
-class OrderedChoiceBuilder : Builder {
+class VoFBuilder : Builder {
     var comportamiento: Comportamiento? = null
     private var textoPregunta: String? = null
     private var opciones: MutableList<Opcion>? = null
+
     fun asignarComportamiento(tipoPuntaje: String) {
-        if (tipoPuntaje != "Clasico") throw DiferenteTipoPreguntaException()
-        comportamiento = ComportamientoOrderedChoice()
+        if (tipoPuntaje == "Clasico") {
+            comportamiento = ComportamientoVoF()
+        } else if (tipoPuntaje == "Penalidad") {
+            comportamiento = ComportamientoVoFPenalidad()
+        } else {
+            throw DiferenteTipoPreguntaException()
+        }
     }
 
-    override fun setEnunciado(enunciado: String?) {
+    fun setEnunciado(enunciado: String?) {
         textoPregunta = enunciado
     }
 
@@ -25,7 +31,7 @@ class OrderedChoiceBuilder : Builder {
         })
     }
 
-    override fun construirPregunta(): Pregunta {
+    fun construirPregunta(): Pregunta {
         return Pregunta(textoPregunta, comportamiento, opciones)
     }
 }

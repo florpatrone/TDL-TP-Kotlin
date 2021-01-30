@@ -1,4 +1,4 @@
-package builders
+package model.builders
 
 import java.util.ArrayList
 import java.util.function.Consumer

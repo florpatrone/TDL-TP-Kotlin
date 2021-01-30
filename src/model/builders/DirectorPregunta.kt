@@ -1,4 +1,4 @@
-package builders
+package model.builders
 
 class DirectorPregunta(var tipoPuntaje: String, var enunciado: String, opciones: List<OpcionSerializada?>) {
     var opciones: List<OpcionSerializada?>

@@ -1,4 +1,4 @@
-package builders
+package model.builders
 
 interface Builder {
     fun asignarComportamiento(tipoPuntaje: String?)

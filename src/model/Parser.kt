@@ -1,13 +1,10 @@
 package model
 
 import com.google.gson.Gson
-import comportamientos.ComportamientoVoF
 import model.builders.*
 import model.comportamientos.ComportamientoVoF
 import model.data.PreguntaSerializada
 import poo.coders.main.modelo.builders.*
-import poo.coders.main.modelo.comportamientos.ComportamientoVoF
-import poo.coders.main.modelo.data.PreguntaSerializada
 import java.io.BufferedReader
 import java.io.FileNotFoundException
 import java.io.FileReader

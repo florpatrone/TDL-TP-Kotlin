@@ -6,37 +6,37 @@ class Juego {
 
     private var jugadorInicial: Jugador? = null
     var jugadorActual: Jugador? = null
-    private var preguntaActual: Pregunta
+    private var preguntaActual: Pregunta? = null
 
-    fun empezarJuego(nombreJugador1: String?, nombreJugador2: String?) {
+    fun empezarJuego(nombreJugador1: String, nombreJugador2: String) {
         val jugador1 = Jugador(nombreJugador1)
         val jugador2 = Jugador(nombreJugador2)
-        jugador1.setJugadorSiguiente(jugador2)
-        jugador2.setJugadorSiguiente(jugador1)
+        jugador1.jugadorSiguiente = jugador2
+        jugador2.jugadorSiguiente = jugador1
         jugadorInicial = jugador1
         jugadorActual = jugadorInicial
     }
 
-    private fun elegirRespuestasAPreguntaActual(respuestasElegidas: ArrayList<Opcion>): Jugador {
-        jugadorActual.elegirRespuestasAPreguntaActual(respuestasElegidas)
-        return jugadorActual.getJugadorSiguiente()
+    private fun elegirRespuestasAPreguntaActual(respuestasElegidas: ArrayList<Opcion>): Jugador? {
+        jugadorActual?.elegirRespuestasAPreguntaActual(respuestasElegidas)
+        return jugadorActual?.jugadorSiguiente
     }
 
     fun siguienteTurno(respuestasElegidas: ArrayList<Opcion>) {
         jugadorActual = elegirRespuestasAPreguntaActual(respuestasElegidas)
         if (jugadorActual === jugadorInicial) {
-            preguntaActual = preguntaActual.getSiguientePregunta()
+            preguntaActual = preguntaActual?.siguientePregunta
         }
     }
 
-    fun getPreguntaActual(): Pregunta {
+    fun getPreguntaActual(): Pregunta? {
         return preguntaActual
     }
 
-    val tipoPregunta: String
-        get() = preguntaActual.getTipoPregunta()
+    val tipoPregunta: String?
+        get() = preguntaActual?.tipoPregunta
 
     val ganador: Jugador?
-        get() = if (jugadorActual.getPuntos() > jugadorActual.getJugadorSiguiente().getPuntos()) jugadorActual else jugadorActual.getJugadorSiguiente()
+        get() = if (jugadorActual?.puntos!! > jugadorActual?.jugadorSiguiente?.puntos!!) jugadorActual else jugadorActual!!.jugadorSiguiente
 
 }

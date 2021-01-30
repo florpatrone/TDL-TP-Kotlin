@@ -1,5 +1,7 @@
 package model.builders
 
+import model.Pregunta
+
 interface Builder {
     fun asignarComportamiento(tipoPuntaje: String?)
 

@@ -9,8 +9,4 @@ class PuntajeClasico : Puntaje() {
         puntajeAcumulado = 0
         factor = 0
     }
-
-    override fun getPuntajeAcumulado(): Int {
-        return puntajeAcumulado
-    }
 }

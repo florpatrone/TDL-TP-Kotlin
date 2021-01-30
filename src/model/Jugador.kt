@@ -25,7 +25,7 @@ class Jugador(val nombre: String) {
         setMultiplicador(MultiplicadorBasico())
     }
 
-    fun procesarPregunta(pregunta: Pregunta, respuestas: List<Opcion?>?) {
+    fun procesarPregunta(pregunta: Pregunta, respuestas: List<Opcion>) {
         ganarPuntaje(pregunta.obtenerPuntaje(respuestas))
     }
 

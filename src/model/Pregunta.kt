@@ -1,5 +1,9 @@
 package model
 
+import comportamientos.Comportamiento
+import comportamientos.ComportamientoConMultiplicador
+import model.modificadores.Multiplicador
+
 class Pregunta(enunciado: String?, comportamiento: Comportamiento) {
     val enunciado: String?
     private var opciones: List<Opcion>? = null
@@ -21,8 +25,8 @@ class Pregunta(enunciado: String?, comportamiento: Comportamiento) {
         this.opciones = opciones
     }
 
-    val tipoPregunta: String
-        get() = comportamiento.getTipoPregunta()
+    val tipoPregunta: String?
+        get() = comportamiento.tipoPregunta
 
     fun obtenerPuntaje(opcionesElegidasPorElJugador: List<Opcion?>?): Int {
         return comportamiento.obtenerPuntaje(opcionesElegidasPorElJugador)

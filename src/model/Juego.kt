@@ -1,5 +1,7 @@
 package model
 
+import model.modificadores.Exclusividad
+import model.modificadores.SinExclusividad
 import java.util.ArrayList
 
 class Juego : Observable {

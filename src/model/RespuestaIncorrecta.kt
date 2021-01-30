@@ -1,6 +1,6 @@
 package model
 
-import comportamientos.Comportamiento
+import model.comportamientos.Comportamiento
 
 class RespuestaIncorrecta(textoRespuesta: String?) : Respuesta(textoRespuesta!!) {
     override fun aplicarComportamiento(comportamiento: Comportamiento, puntaje: Puntaje?) {

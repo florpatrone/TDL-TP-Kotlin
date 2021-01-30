@@ -1,6 +1,7 @@
 package model
 
 import model.modificadores.Multiplicador
+import model.modificadores.MultiplicadorBasico
 import java.util.*
 
 class Jugador(val nombre: String) {

@@ -1,7 +1,7 @@
 package model
 
-import comportamientos.Comportamiento
-import comportamientos.ComportamientoConMultiplicador
+import model.comportamientos.Comportamiento
+import model.comportamientos.ComportamientoConMultiplicador
 import model.modificadores.Multiplicador
 
 class Pregunta(enunciado: String?, comportamiento: Comportamiento) {

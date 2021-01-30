@@ -1,6 +1,5 @@
 package model.comportamientos
 
-import model.Jugador
 import model.Opcion
 import model.Puntaje
 import model.PuntajeClasico
@@ -20,7 +19,7 @@ class ComportamientoOrderedChoice : Comportamiento, ComportamientoConExclusivida
     override val tipoPregunta: String
         get() = "Ordered Choice"
 
-    override fun activarExclusividad(exclusividad: Exclusividad): Exclusividad {
-        return exclusividad.activarExclusividad(!!)
+    override fun activarExclusividad(exclusividad: Exclusividad?): Exclusividad? {
+        return exclusividad!!.activarExclusividad()
     }
 }

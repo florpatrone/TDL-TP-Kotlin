@@ -2,7 +2,7 @@
 
 **Integrantes:**
 
-[Fabián Colque](https://github.com/FabianColque26)
-[Florencia Patrone](https://github.com/florpatrone/)
-[Matías Cabral](https://github.com/MatiasEzequielCabral)
-[Nicolás Gaido](https://github.com/Ngaido)
+ - [Fabián Colque](https://github.com/FabianColque26)
+ - [Florencia Patrone](https://github.com/florpatrone/)
+ - [Matías Cabral](https://github.com/MatiasEzequielCabral)
+ - [Nicolás Gaido](https://github.com/Ngaido)

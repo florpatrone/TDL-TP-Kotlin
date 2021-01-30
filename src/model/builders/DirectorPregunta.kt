@@ -1,7 +1,7 @@
 package model.builders
 
-import data.OpcionSerializada
-import data.PreguntaSerializada
+import model.data.OpcionSerializada
+import model.data.PreguntaSerializada
 
 public class DirectorPregunta {
     var tipoPuntaje: String? = null

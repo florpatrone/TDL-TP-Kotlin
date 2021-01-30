@@ -1,6 +1,7 @@
 package model.builders
 
 import model.Opcion
+import model.OpcionConjunto
 import model.Pregunta
 import model.comportamientos.Comportamiento
 import model.comportamientos.ComportamientoGroupChoice
@@ -13,6 +14,7 @@ class GroupChoiceBuilder : Builder {
     var comportamiento: Comportamiento? = null
     private var textoPregunta: String? = null
     private var opciones: MutableList<Opcion>? = null
+
     fun asignarComportamiento(tipoPuntaje: String) {
         if (tipoPuntaje != "Clasico") throw DiferenteTipoPreguntaException()
         comportamiento = ComportamientoGroupChoice()
@@ -25,7 +27,8 @@ class GroupChoiceBuilder : Builder {
     fun setOpciones(opciones: List<OpcionSerializada?>) {
         this.opciones = ArrayList<Opcion>()
         opciones.forEach(Consumer<OpcionSerializada> { opcionSerializada: OpcionSerializada ->
-            this.opciones!!.add(OpcionConjunto(opcionSerializada.getClave(), opcionSerializada.getTexto())
+            this.opciones!!.add(
+                OpcionConjunto(opcionSerializada.getClave(), opcionSerializada.getTexto())
             )
         })
     }

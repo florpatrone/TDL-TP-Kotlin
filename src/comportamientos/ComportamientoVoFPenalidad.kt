@@ -1,5 +1,6 @@
 package comportamientos
 
+import model.comportamientos.*
 import model.Jugador
 import model.Opcion
 import model.Puntaje

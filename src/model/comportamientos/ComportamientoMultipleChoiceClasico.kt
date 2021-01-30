@@ -1,4 +1,4 @@
-package comportamientos
+package model.comportamientos
 
 import model.*
 import model.excepciones.CantidadDeOpcionesInvalidasException

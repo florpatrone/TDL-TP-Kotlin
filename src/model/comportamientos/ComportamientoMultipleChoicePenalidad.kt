@@ -1,4 +1,4 @@
-package comportamientos
+package model.comportamientos
 
 import model.Jugador
 import model.Opcion

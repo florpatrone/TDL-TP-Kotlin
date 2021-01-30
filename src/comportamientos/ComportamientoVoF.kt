@@ -1,6 +1,9 @@
 package comportamientos
 
-import model.*
+import model.comportamientos.Comportamiento
+import model.Opcion
+import model.Puntaje
+import model.PuntajeClasico
 import model.excepciones.CantidadDeOpcionesInvalidasException
 
 class ComportamientoVoF : Comportamiento {

@@ -1,15 +1,21 @@
 package model
 
 import java.util.*
+import model.modificadores.Multiplicador
 
 class Jugador(val nombre: String) {
 
     var puntos = 0
     private var respuestasElegidas: ArrayList<Opcion>
     var jugadorSiguiente: Jugador? = null
+    private var multiplicadorClase: Multiplicador? = null
 
     fun elegirOpciones(respuestasElegidas: ArrayList<Opcion>) {
         this.respuestasElegidas = respuestasElegidas
+    }
+
+    fun setMultiplicador(multiplicadorClase: Multiplicador?) {
+        this.multiplicadorClase = multiplicadorClase
     }
 
     fun ganarPuntaje(puntaje: Int) {
@@ -31,4 +37,6 @@ class Jugador(val nombre: String) {
     init {
         respuestasElegidas = ArrayList<Opcion>()
     }
+
+
 }

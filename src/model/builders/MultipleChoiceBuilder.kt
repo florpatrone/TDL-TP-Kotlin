@@ -4,6 +4,7 @@ import model.Opcion
 import model.Pregunta
 import model.comportamientos.Comportamiento
 import model.comportamientos.ComportamientoMultipleChoiceClasico
+import model.comportamientos.ComportamientoMultipleChoiceParcial
 import model.comportamientos.ComportamientoMultipleChoicePenalidad
 import model.data.OpcionSerializada
 import model.excepciones.DiferenteTipoPreguntaException
@@ -17,7 +18,7 @@ class MultipleChoiceBuilder : Builder {
     override fun asignarComportamiento(tipoPuntaje: String?) {
         when (tipoPuntaje) {
             "Clasico" -> comportamiento = ComportamientoMultipleChoiceClasico()
-            //"Parcial" -> comportamiento = ComportamientoMultipleChoiceParcial()
+            "Parcial" -> comportamiento = ComportamientoMultipleChoiceParcial()
             "Penalidad" -> comportamiento = ComportamientoMultipleChoicePenalidad()
             else -> throw DiferenteTipoPreguntaException()
         }

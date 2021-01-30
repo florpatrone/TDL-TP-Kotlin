@@ -1,5 +1,6 @@
 package model.builders
 
+import data.OpcionSerializada
 import model.Pregunta
 
 interface Builder {

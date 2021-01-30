@@ -1,5 +1,8 @@
 package model.builders
 
+import comportamientos.Comportamiento
+import model.Opcion
+import model.excepciones.DiferenteTipoPreguntaException
 import java.util.ArrayList
 import java.util.function.Consumer
 

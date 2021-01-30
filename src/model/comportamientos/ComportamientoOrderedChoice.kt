@@ -3,24 +3,24 @@ package model.comportamientos
 import model.Jugador
 import model.Opcion
 import model.Puntaje
-import model.PuntajePenalidad
+import model.PuntajeClasico
 import model.excepciones.CantidadDeOpcionesInvalidasException
-import model.modificadores.Multiplicador
+import model.modificadores.Exclusividad
 
-class ComportamientoMultipleChoicePenalidad : Comportamiento, ComportamientoConMultiplicador {
+class ComportamientoOrderedChoice : Comportamiento, ComportamientoConExclusividad {
     constructor() {}
     constructor(opciones: List<Opcion?>) {
         if (opciones.size < 2 || opciones.size > 5) throw CantidadDeOpcionesInvalidasException()
     }
 
     override fun crearPuntaje(): Puntaje {
-        return PuntajePenalidad()
+        return PuntajeClasico()
     }
 
     override val tipoPregunta: String
-        get() = "Multiple Choice Penalidad"
+        get() = "Ordered Choice"
 
-    override fun agregarMultiplicadorAJugador(jugador: Jugador?, multiplicador: Multiplicador?) {
-        jugador!!.setMultiplicador(multiplicador!!)
+    override fun activarExclusividad(exclusividad: Exclusividad): Exclusividad {
+        return exclusividad.activarExclusividad(!!)
     }
 }

@@ -1,12 +1,11 @@
-package comportamientos
+package model.comportamientos
 
-import model.comportamientos.*
 import model.Jugador
 import model.Opcion
 import model.Puntaje
 import model.PuntajePenalidad
-import model.modificadores.Multiplicador
 import model.excepciones.CantidadDeOpcionesInvalidasException
+import model.modificadores.Multiplicador
 
 class ComportamientoVoFPenalidad : Comportamiento, ComportamientoConMultiplicador {
     constructor() {}
@@ -22,6 +21,6 @@ class ComportamientoVoFPenalidad : Comportamiento, ComportamientoConMultiplicado
         get() = "Verdadero o Falso Penalidad"
 
     override fun agregarMultiplicadorAJugador(jugador: Jugador?, multiplicador: Multiplicador?) {
-        jugador!!.setMultiplicador(multiplicador)
+        jugador!!.setMultiplicador(multiplicador!!)
     }
 }

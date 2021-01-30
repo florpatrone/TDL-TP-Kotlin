@@ -6,10 +6,10 @@ import model.PuntajeClasico
 import model.excepciones.CantidadDeOpcionesInvalidasException
 import model.modificadores.Exclusividad
 
-class ComportamientoMultipleChoiceClasico : Comportamiento,ComportamientoConExclusividad {
+class ComportamientoGroupChoice : Comportamiento, ComportamientoConExclusividad {
     constructor() {}
     constructor(opciones: List<Opcion?>) {
-        if (opciones.size < 2 || opciones.size > 5) throw CantidadDeOpcionesInvalidasException()
+        if (opciones.size < 2 || opciones.size > 6) throw CantidadDeOpcionesInvalidasException()
     }
 
     override fun crearPuntaje(): Puntaje {
@@ -17,9 +17,9 @@ class ComportamientoMultipleChoiceClasico : Comportamiento,ComportamientoConExcl
     }
 
     override val tipoPregunta: String
-        get() = "Multiple Choice Clasico"
+        get() = "Group Choice"
 
-    override fun activarExclusividad(exclusividad: Exclusividad?): Exclusividad {
-        return exclusividad!!.activarExclusividad()!!
+    override fun activarExclusividad(exclusividad: Exclusividad?): Exclusividad? {
+        return exclusividad!!.activarExclusividad()
     }
 }

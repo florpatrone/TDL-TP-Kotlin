@@ -18,6 +18,7 @@ public class DirectorPregunta {
         this(preguntaSerializada.getPuntajeType(), preguntaSerializada.getEnunciado(), preguntaSerializada.getOptions())
     }
 
+
     fun asignar(builder: Builder) {
         builder.setOpciones(opciones)
         builder.asignarComportamiento(tipoPuntaje)

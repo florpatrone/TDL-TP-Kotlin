@@ -16,7 +16,7 @@ class Parser {
     private fun convertirPreguntas(preguntaSerializadas: List<PreguntaSerializada>?): Pregunta {
         val preguntas = ArrayList<Pregunta>()
         preguntaSerializadas?.forEach(Consumer<PreguntaSerializada> { preguntaSerializada: PreguntaSerializada ->
-            val tipoPregunta: String = preguntaSerializada.getType()
+            val tipoPregunta: String? = preguntaSerializada.getType()
             val director = DirectorPregunta(preguntaSerializada)
             when (tipoPregunta) {
                 "vof" -> {
@@ -62,7 +62,7 @@ class Parser {
     fun parsear(): Pregunta {
         val gson = Gson()
         var br: BufferedReader? = null
-        var preguntaSerializadas: List<PreguntaSerializada>? = null
+        var preguntaSerializadas: List<PreguntaSerializada>
         try {
             br = BufferedReader(FileReader("data.json"))
             preguntaSerializadas = Arrays.asList(gson.fromJson(br, Array<PreguntaSerializada>::class.java))

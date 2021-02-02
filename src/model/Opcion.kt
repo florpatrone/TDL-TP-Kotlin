@@ -2,9 +2,19 @@ package model
 
 import model.excepciones.ImposibleConvertirEnRespuestaException
 
-class Opcion(val clave: String, val textoOpcion: String) {
+open class Opcion(val clave: String?, val textoOpcion: String?) {
 
-    fun convertirEnRespuesta(): Respuesta {
+    open fun convertirEnRespuesta(): Respuesta {
         throw ImposibleConvertirEnRespuestaException()
+    }
+
+    @JvmName("getClave1")
+    fun getClave(): String? {
+        return clave
+    }
+
+    @JvmName("getTextoOpcion1")
+    fun getTextoOpcion(): String? {
+        return textoOpcion
     }
 }

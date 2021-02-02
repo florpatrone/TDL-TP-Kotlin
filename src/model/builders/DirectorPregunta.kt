@@ -3,7 +3,7 @@ package model.builders
 import model.data.OpcionSerializada
 import model.data.PreguntaSerializada
 
-public class DirectorPregunta {
+class DirectorPregunta(preguntaSerializada: PreguntaSerializada) {
     var tipoPuntaje: String? = null
     var enunciado: String? = null
     var opciones: List<OpcionSerializada?>? = null

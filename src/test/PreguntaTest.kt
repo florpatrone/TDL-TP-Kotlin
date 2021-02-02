@@ -8,6 +8,6 @@ class PreguntaTest {
     @Test
     fun deberiaCrearsePreguntaConElTextoCorrespondiente() {
         val pregunta = Pregunta("El texto de una pregunta", null)
-        Assertions.assertEquals("El texto de una pregunta", pregunta.getEnunciado())
+        Assertions.assertEquals("El texto de una pregunta", pregunta.enunciado)
     }
 }

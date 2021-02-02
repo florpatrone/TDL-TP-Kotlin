@@ -19,7 +19,7 @@ class PreguntaConRespuestasOrdenadasITest {
         respuestasJugador.add(OpcionConjunto(Opcion("2", ""), "2"))
         respuestasJugador.add(OpcionConjunto(Opcion("3", ""), "3"))
         jugador.procesarPregunta(pregunta, respuestasJugador)
-        Assertions.assertEquals(1, jugador.getPuntos())
+        Assertions.assertEquals(1, jugador.puntos)
     }
 
     @Test
@@ -31,6 +31,6 @@ class PreguntaConRespuestasOrdenadasITest {
         respuestasJugador.add(OpcionConjunto(Opcion("2", ""), "3"))
         respuestasJugador.add(OpcionConjunto(Opcion("3", ""), "2"))
         jugador.procesarPregunta(pregunta, respuestasJugador)
-        Assertions.assertEquals(0, jugador.getPuntos())
+        Assertions.assertEquals(0, jugador.puntos)
     }
 }

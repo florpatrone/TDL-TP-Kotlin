@@ -47,8 +47,8 @@ class MultipleChoiceParcialITest {
         val pregunta = Pregunta("Pregunta", ComportamientoMultipleChoiceParcial())
         val jugador1 = Jugador("Jugador 1")
         val jugador2 = Jugador("Jugador 2")
-        jugador1.setJugadorSiguiente(jugador2)
-        jugador2.setJugadorSiguiente(jugador1)
+        jugador1.jugadorSiguiente = jugador2
+        jugador2.jugadorSiguiente = jugador1
         val exclusividad: Exclusividad = SinExclusividad()
         val respuestasDeJugador1: ArrayList<Opcion> = ArrayList<Opcion>()
         val respuestasDeJugador2: ArrayList<Opcion> = ArrayList<Opcion>()
@@ -61,8 +61,8 @@ class MultipleChoiceParcialITest {
         jugador1.elegirRespuestasAPreguntaActual(respuestasDeJugador1)
         jugador2.elegirRespuestasAPreguntaActual(respuestasDeJugador2)
         exclusividad.definirPuntosJugadoresEnPregunta(pregunta, jugador1)
-        Assertions.assertEquals(2, jugador1.getPuntos())
-        Assertions.assertEquals(0, jugador2.getPuntos())
+        Assertions.assertEquals(2, jugador1.puntos)
+        Assertions.assertEquals(0, jugador2.puntos)
         respuestasDeJugador1.clear()
         respuestasDeJugador2.clear()
 
@@ -74,8 +74,8 @@ class MultipleChoiceParcialITest {
         jugador1.elegirRespuestasAPreguntaActual(respuestasDeJugador1)
         jugador2.elegirRespuestasAPreguntaActual(respuestasDeJugador2)
         exclusividad.definirPuntosJugadoresEnPregunta(pregunta, jugador1)
-        Assertions.assertEquals(3, jugador1.getPuntos())
-        Assertions.assertEquals(3, jugador2.getPuntos())
+        Assertions.assertEquals(3, jugador1.puntos)
+        Assertions.assertEquals(3, jugador2.puntos)
         respuestasDeJugador1.clear()
         respuestasDeJugador2.clear()
         respuestasDeJugador1.add(OpcionConjunto("Correcta", "", "Correcta"))
@@ -86,8 +86,8 @@ class MultipleChoiceParcialITest {
         jugador1.elegirRespuestasAPreguntaActual(respuestasDeJugador1)
         jugador2.elegirRespuestasAPreguntaActual(respuestasDeJugador2)
         exclusividad.definirPuntosJugadoresEnPregunta(pregunta, jugador1)
-        Assertions.assertEquals(3, jugador1.getPuntos())
-        Assertions.assertEquals(6, jugador2.getPuntos())
+        Assertions.assertEquals(3, jugador1.puntos)
+        Assertions.assertEquals(6, jugador2.puntos)
     }
 
     @Test

@@ -14,7 +14,7 @@ class PuntajeTest {
         puntaje.accionCorrecta()
         puntaje.accionCorrecta()
         puntaje.accionIncorrecta()
-        Assertions.assertEquals(0, puntaje.getPuntajeAcumulado())
+        Assertions.assertEquals(0, puntaje.puntajeAcumulado)
     }
 
     @Test
@@ -23,7 +23,7 @@ class PuntajeTest {
         puntaje.accionCorrecta()
         puntaje.accionCorrecta()
         puntaje.accionCorrecta()
-        Assertions.assertEquals(1, puntaje.getPuntajeAcumulado())
+        Assertions.assertEquals(1, puntaje.puntajeAcumulado)
     }
 
     @Test
@@ -32,7 +32,7 @@ class PuntajeTest {
         puntaje.accionCorrecta()
         puntaje.accionCorrecta()
         puntaje.accionCorrecta()
-        Assertions.assertEquals(3, puntaje.getPuntajeAcumulado())
+        Assertions.assertEquals(3, puntaje.puntajeAcumulado)
     }
 
     @Test
@@ -41,20 +41,20 @@ class PuntajeTest {
         puntaje.accionCorrecta()
         puntaje.accionCorrecta()
         puntaje.accionIncorrecta()
-        Assertions.assertEquals(0, puntaje.getPuntajeAcumulado())
+        Assertions.assertEquals(0, puntaje.puntajeAcumulado)
     }
 
     @Test
     fun test05PuntajePenalidadSeIncrementa1VezDevuelvePuntaje1() {
         val puntaje: Puntaje = PuntajePenalidad()
         puntaje.accionCorrecta()
-        Assertions.assertEquals(1, puntaje.getPuntajeAcumulado())
+        Assertions.assertEquals(1, puntaje.puntajeAcumulado)
     }
 
     @Test
     fun test06PuntajePenalidadSeAnulaDevuelvePuntajeMenos1() {
         val puntaje: Puntaje = PuntajePenalidad()
         puntaje.accionIncorrecta()
-        Assertions.assertEquals(-1, puntaje.getPuntajeAcumulado())
+        Assertions.assertEquals(-1, puntaje.puntajeAcumulado)
     }
 }

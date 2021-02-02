@@ -4,7 +4,6 @@ import com.google.gson.Gson
 import model.builders.*
 import model.comportamientos.ComportamientoVoF
 import model.data.PreguntaSerializada
-import poo.coders.main.modelo.builders.*
 import java.io.BufferedReader
 import java.io.FileNotFoundException
 import java.io.FileReader

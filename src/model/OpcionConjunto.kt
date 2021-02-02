@@ -13,13 +13,13 @@ class OpcionConjunto : Opcion {
     }
 
     constructor(opcionOriginal: Opcion, claveElegida: String?) : super(
-        opcionOriginal.getClave(),
-        opcionOriginal.getTextoOpcion()
+        opcionOriginal.clave,
+        opcionOriginal.textoOpcion
     ) {
         this.claveElegida = claveElegida
     }
 
     override fun convertirEnRespuesta(): Respuesta {
-        return if (claveElegida == super.getClave()) RespuestaCorrecta("Correcta") else RespuestaIncorrecta("Incorrecta")
+        return if (claveElegida == super.clave) RespuestaCorrecta("Correcta") else RespuestaIncorrecta("Incorrecta")
     }
 }

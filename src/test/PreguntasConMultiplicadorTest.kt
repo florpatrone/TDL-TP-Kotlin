@@ -16,8 +16,8 @@ class PreguntasConMultiplicadorTest {
     fun test01JugadorActivaMultiplicadorX2EnVoFPenalidadRespondeConOpcionCorrectaGana2Puntos() {
         val jugador1 = Jugador("Cthulhu")
         val jugador2 = Jugador("Nyarlathotep")
-        jugador1.setJugadorSiguiente(jugador2)
-        jugador2.setJugadorSiguiente(jugador1)
+        jugador1.jugadorSiguiente =jugador2
+        jugador2.jugadorSiguiente =jugador1
         val preguntaVoF = Pregunta("La pregunta", ComportamientoVoFPenalidad())
         val opcionesJugador1: ArrayList<Opcion> = ArrayList<Opcion>()
         val opcionesJugador2: ArrayList<Opcion> = ArrayList<Opcion>()
@@ -29,16 +29,16 @@ class PreguntasConMultiplicadorTest {
         jugador1.elegirRespuestasAPreguntaActual(opcionesJugador1)
         jugador2.elegirRespuestasAPreguntaActual(opcionesJugador2)
         exclusividad.definirPuntosJugadoresEnPregunta(preguntaVoF, jugador1)
-        Assertions.assertEquals(2, jugador1.getPuntos())
-        Assertions.assertEquals(-1, jugador2.getPuntos())
+        Assertions.assertEquals(2, jugador1.puntos)
+        Assertions.assertEquals(-1, jugador2.puntos)
     }
 
     @Test
     fun test02JugadorActivaMultiplicadorX3EnVoFPenalidadRespondeConOpcionCorrectaGana2Puntos() {
         val jugador1 = Jugador("Cthulhu")
         val jugador2 = Jugador("Nyarlathotep")
-        jugador1.setJugadorSiguiente(jugador2)
-        jugador2.setJugadorSiguiente(jugador1)
+        jugador1.jugadorSiguiente = jugador2
+        jugador2.jugadorSiguiente = jugador1
         val preguntaVoF = Pregunta("La pregunta", ComportamientoVoFPenalidad())
         val opcionesJugador1: ArrayList<Opcion> = ArrayList<Opcion>()
         val opcionesJugador2: ArrayList<Opcion> = ArrayList<Opcion>()
@@ -50,16 +50,16 @@ class PreguntasConMultiplicadorTest {
         jugador1.elegirRespuestasAPreguntaActual(opcionesJugador1)
         jugador2.elegirRespuestasAPreguntaActual(opcionesJugador2)
         exclusividad.definirPuntosJugadoresEnPregunta(preguntaVoF, jugador1)
-        Assertions.assertEquals(3, jugador1.getPuntos())
-        Assertions.assertEquals(-1, jugador2.getPuntos())
+        Assertions.assertEquals(3, jugador1.puntos)
+        Assertions.assertEquals(-1, jugador2.puntos)
     }
 
     @Test
     fun test03SeAgreganMultiplicadorX2EnAmbosJugadoresEnVoFPenalidadRespondenConOpcionCorrectaGanan2Puntos() {
         val jugador1 = Jugador("Cthulhu")
         val jugador2 = Jugador("Nyarlathotep")
-        jugador1.setJugadorSiguiente(jugador2)
-        jugador2.setJugadorSiguiente(jugador1)
+        jugador1.jugadorSiguiente = jugador2
+        jugador2.jugadorSiguiente = jugador1
         val preguntaVoF = Pregunta("La pregunta", ComportamientoVoFPenalidad())
         val opcionesJugador1: ArrayList<Opcion> = ArrayList<Opcion>()
         val opcionesJugador2: ArrayList<Opcion> = ArrayList<Opcion>()
@@ -72,16 +72,16 @@ class PreguntasConMultiplicadorTest {
         jugador1.elegirRespuestasAPreguntaActual(opcionesJugador1)
         jugador2.elegirRespuestasAPreguntaActual(opcionesJugador2)
         exclusividad.definirPuntosJugadoresEnPregunta(preguntaVoF, jugador1)
-        Assertions.assertEquals(2, jugador1.getPuntos())
-        Assertions.assertEquals(2, jugador2.getPuntos())
+        Assertions.assertEquals(2, jugador1.puntos)
+        Assertions.assertEquals(2, jugador2.puntos)
     }
 
     @Test
     fun test04SeAgreganMultiplicadorDistintosEnAmbosJugadoresEnVoFPenalidadRespondenConOpcionCorrectaGanan2PuntosY3PuntosRespectivamente() {
         val jugador1 = Jugador("Cthulhu")
         val jugador2 = Jugador("Nyarlathotep")
-        jugador1.setJugadorSiguiente(jugador2)
-        jugador2.setJugadorSiguiente(jugador1)
+        jugador1.jugadorSiguiente = jugador2
+        jugador2.jugadorSiguiente = jugador1
         val preguntaVoF = Pregunta("La pregunta", ComportamientoVoFPenalidad())
         val opcionesJugador1: ArrayList<Opcion> = ArrayList<Opcion>()
         val opcionesJugador2: ArrayList<Opcion> = ArrayList<Opcion>()
@@ -93,16 +93,16 @@ class PreguntasConMultiplicadorTest {
         opcionesJugador1.add(OpcionConjunto("1", "El pulpo loco", "1"))
         opcionesJugador2.add(OpcionConjunto("2", "No es buena onda", "2"))
         exclusividad.definirPuntosJugadoresEnPregunta(preguntaVoF, jugador1)
-        Assertions.assertEquals(2, jugador1.getPuntos())
-        Assertions.assertEquals(3, jugador2.getPuntos())
+        Assertions.assertEquals(2, jugador1.puntos)
+        Assertions.assertEquals(3, jugador2.puntos)
     }
 
     @Test
     fun test05UnJugadorUsaMultiplicadorx2EnMultipleChoicePenalidadRespondenConOpcionesIncorrectasTieneMenos2Puntos() {
         val jugador1 = Jugador("Cthulhu")
         val jugador2 = Jugador("Nyarlathotep")
-        jugador1.setJugadorSiguiente(jugador2)
-        jugador2.setJugadorSiguiente(jugador1)
+        jugador1.jugadorSiguiente = jugador2
+        jugador2.jugadorSiguiente = jugador1
         val preguntaVoF = Pregunta("La pregunta", ComportamientoMultipleChoicePenalidad())
         val opcionesJugador1: ArrayList<Opcion> = ArrayList<Opcion>()
         val opcionesJugador2: ArrayList<Opcion> = ArrayList<Opcion>()
@@ -113,16 +113,16 @@ class PreguntasConMultiplicadorTest {
         opcionesJugador1.add(OpcionConjunto("1", "El pulpo loco", "2"))
         opcionesJugador2.add(OpcionConjunto("2", "No es buena onda", "1"))
         exclusividad.definirPuntosJugadoresEnPregunta(preguntaVoF, jugador1)
-        Assertions.assertEquals(-2, jugador1.getPuntos())
-        Assertions.assertEquals(-1, jugador2.getPuntos())
+        Assertions.assertEquals(-2, jugador1.puntos)
+        Assertions.assertEquals(-1, jugador2.puntos)
     }
 
     @Test
     fun test06UnJugadorUsaMultiplicadorx3EnMultipleChoicePenalidadRespondenConOpcionesIncorrectasTieneMenos3Puntos() {
         val jugador1 = Jugador("Cthulhu")
         val jugador2 = Jugador("Nyarlathotep")
-        jugador1.setJugadorSiguiente(jugador2)
-        jugador2.setJugadorSiguiente(jugador1)
+        jugador1.jugadorSiguiente = jugador2
+        jugador2.jugadorSiguiente = jugador1
         val preguntaVoF = Pregunta("La pregunta", ComportamientoMultipleChoicePenalidad())
         val opcionesJugador1: ArrayList<Opcion> = ArrayList<Opcion>()
         val opcionesJugador2: ArrayList<Opcion> = ArrayList<Opcion>()
@@ -133,7 +133,7 @@ class PreguntasConMultiplicadorTest {
         opcionesJugador1.add(OpcionConjunto("1", "El pulpo loco", "2"))
         opcionesJugador2.add(OpcionConjunto("2", "No es buena onda", "1"))
         exclusividad.definirPuntosJugadoresEnPregunta(preguntaVoF, jugador1)
-        Assertions.assertEquals(-3, jugador1.getPuntos())
-        Assertions.assertEquals(-1, jugador2.getPuntos())
+        Assertions.assertEquals(-3, jugador1.puntos)
+        Assertions.assertEquals(-1, jugador2.puntos)
     }
 }

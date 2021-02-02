@@ -26,7 +26,7 @@ class JuegoConDiferentesTiposDePreguntasITests {
         val preguntaVoFPenalidad = Pregunta("", ComportamientoVoFPenalidad())
         respuestasDeJugador.add(OpcionConjunto("Incorrecta", "", "Correcta"))
         jugador.procesarPregunta(preguntaVoFPenalidad, respuestasDeJugador)
-        Assertions.assertEquals(2, jugador.getPuntos())
+        Assertions.assertEquals(2, jugador.puntos)
     }
 
     @Test
@@ -41,6 +41,6 @@ class JuegoConDiferentesTiposDePreguntasITests {
         val preguntaVoF = Pregunta("", ComportamientoVoF())
         respuestasJugador.add(OpcionConjunto("Correcta", "", "Incorrecta"))
         jugador.procesarPregunta(preguntaVoF, respuestasJugador)
-        Assertions.assertEquals(1, jugador.getPuntos())
+        Assertions.assertEquals(1, jugador.puntos)
     }
 }

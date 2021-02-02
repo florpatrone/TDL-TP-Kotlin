@@ -64,7 +64,7 @@ class Juego : Observable {
     }
 
     val ganador: Jugador?
-        get() = if (jugadorActual!!.puntos > jugadorActual!!.jugadorSiguiente!!.puntos) jugadorActual else jugadorActual.jugadorSiguiente)
+        get() = if (jugadorActual!!.puntos > jugadorActual!!.jugadorSiguiente!!.puntos) jugadorActual else jugadorActual!!.jugadorSiguiente
 
     init {
         preguntaActual = Parser().parsear()

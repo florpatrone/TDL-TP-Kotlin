@@ -24,7 +24,7 @@ class GroupChoiceBuilder : Builder {
         textoPregunta = enunciado
     }
 
-    fun setOpciones(opciones: List<OpcionSerializada?>) {
+    override fun setOpciones(opciones: List<OpcionSerializada?>) {
         this.opciones = ArrayList<Opcion>()
         opciones.forEach(Consumer<OpcionSerializada> { opcionSerializada: OpcionSerializada ->
             this.opciones!!.add(

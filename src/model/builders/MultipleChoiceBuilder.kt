@@ -14,7 +14,7 @@ import java.util.function.Consumer
 class MultipleChoiceBuilder : Builder {
     var comportamiento: Comportamiento? = null
     private var textoPregunta: String? = null
-    private var opciones: MutableList<Opcion>? = null
+    private var opciones: List<OpcionSerializada?>?  = null
     override fun asignarComportamiento(tipoPuntaje: String?) {
         when (tipoPuntaje) {
             "Clasico" -> comportamiento = ComportamientoMultipleChoiceClasico()

@@ -18,7 +18,7 @@ class Pregunta(val enunciado: String?, private val comportamiento: Comportamient
     }
 
     val tipoPregunta: String?
-        get() = comportamiento.getTipoPregunta()
+        get() = comportamiento.tipoPregunta
 
     fun obtenerPuntaje(opcionesElegidasPorElJugador: List<Opcion?>?): Int {
         return comportamiento.obtenerPuntaje(opcionesElegidasPorElJugador as List<Opcion>)
@@ -31,7 +31,7 @@ class Pregunta(val enunciado: String?, private val comportamiento: Comportamient
 
     @JvmName("getTipoPregunta1")
     fun getTipoPregunta(): String? {
-        return comportamiento.getTipoPregunta()
+        return comportamiento.tipoPregunta
     }
 
     fun obtenerPuntaje(opcionesDeJugador: List<Opcion?>?, multiplicador: Multiplicador): Int {

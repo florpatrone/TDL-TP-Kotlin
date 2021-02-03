@@ -13,15 +13,11 @@ import java.util.function.Consumer
 class GroupChoiceBuilder : Builder {
     var comportamiento: Comportamiento? = null
     private var textoPregunta: String? = null
-    private var opciones: MutableList<Opcion>? = null
+    private var opciones: List<OpcionSerializada?>?  = null
 
     override fun asignarComportamiento(tipoPuntaje: String?) {
         if (tipoPuntaje != "Clasico") throw DiferenteTipoPreguntaException()
         comportamiento = ComportamientoGroupChoice()
-    }
-
-    override fun setEnunciado(enunciado: String?) {
-        textoPregunta = enunciado
     }
 
     override fun setOpciones(opciones: List<OpcionSerializada?>) {

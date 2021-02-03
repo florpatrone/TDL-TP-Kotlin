@@ -12,7 +12,7 @@ import java.util.function.Consumer
 class OrderedChoiceBuilder : Builder {
     var comportamiento: Comportamiento? = null
     private var textoPregunta: String? = null
-    private var opciones: MutableList<Opcion>? = null
+    private var opciones: List<OpcionSerializada?>?  = null
 
     fun asignarComportamiento(tipoPuntaje: String) {
         if (tipoPuntaje != "Clasico") throw DiferenteTipoPreguntaException()

@@ -20,8 +20,8 @@ class DirectorPregunta(preguntaSerializada: PreguntaSerializada) {
 
 
     fun asignar(builder: Builder) {
-        builder.setOpciones(opciones)
+        builder.opciones = opciones
         builder.asignarComportamiento(tipoPuntaje)
-        builder.setEnunciado(enunciado)
+        builder.enunciado = enunciado
     }
 }

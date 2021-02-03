@@ -17,11 +17,11 @@ class Pregunta(val enunciado: String?, private val comportamiento: Comportamient
         this.opciones = opciones
     }
 
-    val tipoPregunta: String
+    val tipoPregunta: String?
         get() = comportamiento.getTipoPregunta()
 
     fun obtenerPuntaje(opcionesElegidasPorElJugador: List<Opcion?>?): Int {
-        return comportamiento.obtenerPuntaje(opcionesElegidasPorElJugador)
+        return comportamiento.obtenerPuntaje(opcionesElegidasPorElJugador as List<Opcion>)
     }
 
     @JvmName("getSiguientePregunta1")
@@ -35,7 +35,7 @@ class Pregunta(val enunciado: String?, private val comportamiento: Comportamient
     }
 
     fun obtenerPuntaje(opcionesDeJugador: List<Opcion?>?, multiplicador: Multiplicador): Int {
-        return multiplicador.modificarPuntos(comportamiento.obtenerPuntaje(opcionesDeJugador))
+        return multiplicador.modificarPuntos(comportamiento.obtenerPuntaje(opcionesDeJugador as List<Opcion>))
     }
 
     fun agregarMultiplicadorAJugador(jugador: Jugador?, multiplicador: Multiplicador?) {

@@ -9,4 +9,5 @@ class PuntajeParcial : Puntaje() {
         puntajeAcumulado = 0
         factor = 0
     }
+
 }

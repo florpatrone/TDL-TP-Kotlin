@@ -55,16 +55,16 @@ class Juego : Observable {
     val tipoPregunta: String?
         get() = preguntaActual.tipoPregunta
 
-    fun addObserver(observer: Observer) {
-        observers.add(observer)
+    override fun addObserver(observer: Observer?) {
+        observers.add(observer!!)
     }
 
-    fun notifyObservers() {
+    override fun notifyObservers() {
         observers.forEach(Observer::update)
     }
 
     val ganador: Jugador?
-        get() = if (jugadorActual!!.puntos > jugadorActual!!.jugadorSiguiente!!.puntos) jugadorActual else jugadorActual.jugadorSiguiente)
+        get() = if (jugadorActual!!.puntos > jugadorActual!!.jugadorSiguiente!!.puntos) jugadorActual else jugadorActual!!.jugadorSiguiente
 
     init {
         preguntaActual = Parser().parsear()

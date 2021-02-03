@@ -9,4 +9,5 @@ class PuntajeClasico : Puntaje() {
         puntajeAcumulado = 0
         factor = 0
     }
+
 }

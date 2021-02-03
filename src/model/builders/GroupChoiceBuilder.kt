@@ -15,7 +15,7 @@ class GroupChoiceBuilder : Builder {
     private var textoPregunta: String? = null
     private var opciones: MutableList<Opcion>? = null
 
-    fun asignarComportamiento(tipoPuntaje: String) {
+    override fun asignarComportamiento(tipoPuntaje: String?) {
         if (tipoPuntaje != "Clasico") throw DiferenteTipoPreguntaException()
         comportamiento = ComportamientoGroupChoice()
     }

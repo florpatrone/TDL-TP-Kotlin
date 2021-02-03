@@ -62,10 +62,15 @@ class Parser {
     fun parsear(): Pregunta {
         val gson = Gson()
         var br: BufferedReader? = null
-        var preguntaSerializadas: List<PreguntaSerializada>
+        var preguntaSerializadas: List<PreguntaSerializada>? = null
         try {
             br = BufferedReader(FileReader("data.json"))
-            preguntaSerializadas = Arrays.asList(gson.fromJson(br, Array<PreguntaSerializada>::class.java))
+            preguntaSerializadas = Arrays.asList(
+                *gson.fromJson(
+                    br,
+                    Array<PreguntaSerializada>::class.java
+                )
+            )
         } catch (e: FileNotFoundException) {
             e.printStackTrace()
         } finally {

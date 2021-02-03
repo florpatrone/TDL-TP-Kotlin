@@ -29,9 +29,6 @@ abstract class Comportamiento {
         return puntaje.getPuntajeAcumulado()
     }
 
-    @JvmName("getTipoPregunta1")
-    abstract fun getTipoPregunta(): String?
-
     abstract val tipoPregunta: String?
 
     protected abstract fun crearPuntaje(): Puntaje

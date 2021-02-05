@@ -10,4 +10,8 @@ class PuntajeParcial : Puntaje() {
         factor = 0
     }
 
+    override fun getPuntajeAcumulado(): Int {
+        return puntajeAcumulado
+    }
+
 }

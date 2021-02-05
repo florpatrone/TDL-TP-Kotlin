@@ -1,6 +1,7 @@
 package model.builders
 
 import model.Opcion
+import model.OpcionConjunto
 import model.Pregunta
 import model.comportamientos.Comportamiento
 import model.comportamientos.ComportamientoMultipleChoiceClasico
@@ -14,7 +15,8 @@ import java.util.function.Consumer
 class MultipleChoiceBuilder : Builder {
     var comportamiento: Comportamiento? = null
     private var textoPregunta: String? = null
-    private var opciones: List<OpcionSerializada?>?  = null
+    private var opciones: List<OpcionSerializada?>? = null
+
     override fun asignarComportamiento(tipoPuntaje: String?) {
         when (tipoPuntaje) {
             "Clasico" -> comportamiento = ComportamientoMultipleChoiceClasico()
@@ -24,18 +26,20 @@ class MultipleChoiceBuilder : Builder {
         }
     }
 
-    override fun setEnunciado(enunciado: String?) {
+    override fun construirPregunta(): Pregunta? {
+        return Pregunta(textoPregunta, comportamiento!!, opciones)
+    }
+
+    override fun setEnunciado(enunciado: String) {
         textoPregunta = enunciado
     }
 
-    fun setOpciones(opciones: List<OpcionSerializada?>) {
-        this.opciones = ArrayList<Opcion>()
-        opciones.forEach(Consumer<OpcionSerializada> { opcionSerializada: OpcionSerializada ->
-            this.opciones!!.add(Opcion(opcionSerializada.getClave(), opcionSerializada.getTexto()))
+    override fun setOpciones(opciones: List<OpcionSerializada?>?) {
+        this.opciones = ArrayList<Opcion?>()
+        opciones!!.forEach(Consumer { opcionSerializada: OpcionSerializada ->
+            this.opciones.add(
+                OpcionConjunto(opcionSerializada.getClave(), opcionSerializada.getTexto())
+            )
         })
-    }
-
-    override fun construirPregunta(): Pregunta {
-        return Pregunta(textoPregunta, comportamiento, opciones)
     }
 }

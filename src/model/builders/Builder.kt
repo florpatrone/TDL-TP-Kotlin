@@ -1,14 +1,14 @@
 package model.builders
 
-import model.Opcion
-import model.data.OpcionSerializada
 import model.Pregunta
+import model.data.OpcionSerializada
 
 interface Builder {
-    abstract var enunciado: String?
-    abstract var opciones: List<OpcionSerializada?>?
-
     fun asignarComportamiento(tipoPuntaje: String?)
 
     fun construirPregunta(): Pregunta?
+
+    fun setEnunciado(enunciado: String)
+
+    fun setOpciones(opciones: List<OpcionSerializada?>?)
 }

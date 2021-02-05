@@ -20,16 +20,20 @@ class GroupChoiceBuilder : Builder {
         comportamiento = ComportamientoGroupChoice()
     }
 
-    override fun setOpciones(opciones: List<OpcionSerializada?>) {
-        this.opciones = ArrayList<Opcion>()
-        opciones.forEach(Consumer<OpcionSerializada> { opcionSerializada: OpcionSerializada ->
-            this.opciones!!.add(
+    override fun construirPregunta(): Pregunta? {
+        return Pregunta(textoPregunta, comportamiento!!, opciones)
+    }
+
+    override fun setEnunciado(enunciado: String) {
+        textoPregunta = enunciado
+    }
+
+    override fun setOpciones(opciones: List<OpcionSerializada?>?) {
+        this.opciones = ArrayList<Opcion?>()
+        opciones!!.forEach(Consumer { opcionSerializada: OpcionSerializada ->
+            this.opciones.add(
                 OpcionConjunto(opcionSerializada.getClave(), opcionSerializada.getTexto())
             )
         })
-    }
-
-    override fun construirPregunta(): Pregunta {
-        return Pregunta(textoPregunta, comportamiento, opciones)
     }
 }

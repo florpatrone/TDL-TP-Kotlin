@@ -8,4 +8,8 @@ class PuntajePenalidad : Puntaje() {
     override fun accionIncorrecta() {
         puntajeAcumulado -= factor
     }
+
+    override fun getPuntajeAcumulado(): Int {
+        return puntajeAcumulado
+    }
 }

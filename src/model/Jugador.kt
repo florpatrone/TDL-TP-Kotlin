@@ -41,7 +41,7 @@ class Jugador(val nombre: String) {
     }
 
     fun procesarPregunta(pregunta: Pregunta, respuestas: List<Opcion?>?) {
-        ganarPuntaje(pregunta.obtenerPuntaje(respuestas))
+        ganarPuntaje(pregunta.obtenerPuntaje(respuestas as List<Opcion>))
     }
 
     fun elegirRespuestasAPreguntaActual(respuestasElegidas: ArrayList<Opcion>) {

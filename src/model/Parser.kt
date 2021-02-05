@@ -13,7 +13,7 @@ import java.util.function.Consumer
 
 
 class Parser {
-    private fun convertirPreguntas(preguntaSerializadas: List<PreguntaSerializada>?): Pregunta {
+    private fun convertirPreguntas(preguntaSerializadas: List<PreguntaSerializada>?): Pregunta? {
         val preguntas = ArrayList<Pregunta>()
         preguntaSerializadas?.forEach(Consumer<PreguntaSerializada> { preguntaSerializada: PreguntaSerializada ->
             val tipoPregunta: String? = preguntaSerializada.getType()
@@ -22,22 +22,22 @@ class Parser {
                 "vof" -> {
                     val voFBuilder = VoFBuilder()
                     director.asignar(voFBuilder)
-                    preguntas.add(voFBuilder.construirPregunta())
+                    preguntas.add(voFBuilder.construirPregunta()!!)
                 }
                 "multiple" -> {
                     val multipleChoiceBuilder = MultipleChoiceBuilder()
                     director.asignar(multipleChoiceBuilder)
-                    preguntas.add(multipleChoiceBuilder.construirPregunta())
+                    preguntas.add(multipleChoiceBuilder.construirPregunta()!!)
                 }
                 "order" -> {
                     val orderedChoiceBuilder = OrderedChoiceBuilder()
                     director.asignar(orderedChoiceBuilder)
-                    preguntas.add(orderedChoiceBuilder.construirPregunta())
+                    preguntas.add(orderedChoiceBuilder.construirPregunta()!!)
                 }
                 else -> {
                     val groupChoiceBuilder = GroupChoiceBuilder()
                     director.asignar(groupChoiceBuilder)
-                    preguntas.add(groupChoiceBuilder.construirPregunta())
+                    preguntas.add(groupChoiceBuilder.construirPregunta()!!)
                 }
             }
         })
@@ -45,21 +45,21 @@ class Parser {
         return convertirEnPreguntaCiclica(preguntas)
     }
 
-    private fun convertirEnPreguntaCiclica(preguntas: ArrayList<Pregunta>): Pregunta {
+    private fun convertirEnPreguntaCiclica(preguntas: ArrayList<Pregunta>): Pregunta? {
         val actual = preguntas[0] //[p1]+ p*
         var siguiente: Pregunta
         if (preguntas.size > 1) {
             siguiente = preguntas[1]
-            actual.siguientePregunta = siguiente
+            actual.setSiguientePregunta(siguiente)
             for (i in 2 until preguntas.size) { //4 ("")
-                siguiente.siguientePregunta = preguntas[i]
+                siguiente.setSiguientePregunta(preguntas[i])
                 siguiente = preguntas[i]
             }
         }
         return actual
     }
 
-    fun parsear(): Pregunta {
+    fun parsear(): Pregunta? {
         val gson = Gson()
         var br: BufferedReader? = null
         var preguntaSerializadas: List<PreguntaSerializada>? = null

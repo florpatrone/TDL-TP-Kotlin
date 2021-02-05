@@ -23,11 +23,11 @@ class ExclusividadTest {
         val opcionesElegidasPorJugador1: ArrayList<Opcion> = ArrayList<Opcion>()
         val opcionesElegidasPorJugador2: ArrayList<Opcion> = ArrayList<Opcion>()
         var exclusividad: Exclusividad = SinExclusividad()
-        exclusividad = preguntaVoF.activarExclusividad(exclusividad)
+        exclusividad = preguntaVoF.activarExclusividad(exclusividad)!!
         opcionesElegidasPorJugador1.add(OpcionConjunto("1", "Es QA", "1"))
         opcionesElegidasPorJugador2.add(OpcionConjunto("2", "No es hacker", "1"))
         jugador1.elegirOpciones(opcionesElegidasPorJugador1)
-        jugador1.getJugadorSiguiente().elegirOpciones(opcionesElegidasPorJugador2)
+        jugador1.getJugadorSiguiente()?.elegirOpciones(opcionesElegidasPorJugador2)
         exclusividad.definirPuntosJugadoresEnPregunta(preguntaVoF, jugador1)
         Assertions.assertEquals(2, jugador1.puntos)
         Assertions.assertEquals(0, jugador2.puntos)
@@ -45,7 +45,7 @@ class ExclusividadTest {
         jugador1.elegirRespuestasAPreguntaActual(opcionesElegidasPorJugador1)
         jugador2.elegirRespuestasAPreguntaActual(opcionesElegidasPorJugador2)
         var exclusividad: Exclusividad = SinExclusividad()
-        exclusividad = preguntaVoF.activarExclusividad(exclusividad)
+        exclusividad = preguntaVoF.activarExclusividad(exclusividad)!!
         opcionesElegidasPorJugador1.add(OpcionConjunto("1", "Es QA", "1"))
         opcionesElegidasPorJugador2.add(OpcionConjunto("2", "No es hacker", "2"))
         exclusividad.definirPuntosJugadoresEnPregunta(preguntaVoF, jugador1)
@@ -82,8 +82,8 @@ class ExclusividadTest {
         val opcionesElegidasPorJugador1: ArrayList<Opcion> = ArrayList<Opcion>()
         val opcionesElegidasPorJugador2: ArrayList<Opcion> = ArrayList<Opcion>()
         var exclusividad: Exclusividad = SinExclusividad()
-        exclusividad = preguntaVoF.activarExclusividad(exclusividad)
-        exclusividad = preguntaVoF.activarExclusividad(exclusividad)
+        exclusividad = preguntaVoF.activarExclusividad(exclusividad)!!
+        exclusividad = preguntaVoF.activarExclusividad(exclusividad)!!
         opcionesElegidasPorJugador1.add(OpcionConjunto("1", "Es QA", "1"))
         opcionesElegidasPorJugador2.add(OpcionConjunto("2", "No es hacker", "1"))
         jugador1.elegirRespuestasAPreguntaActual(opcionesElegidasPorJugador1)
@@ -105,8 +105,8 @@ class ExclusividadTest {
         jugador1.elegirRespuestasAPreguntaActual(opcionesElegidasPorJugador1)
         jugador2.elegirRespuestasAPreguntaActual(opcionesElegidasPorJugador2)
         var exclusividad: Exclusividad = SinExclusividad()
-        exclusividad = preguntaVoF.activarExclusividad(exclusividad)
-        exclusividad = preguntaVoF.activarExclusividad(exclusividad)
+        exclusividad = preguntaVoF.activarExclusividad(exclusividad)!!
+        exclusividad = preguntaVoF.activarExclusividad(exclusividad)!!
         opcionesElegidasPorJugador1.add(OpcionConjunto("1", "Es QA", "1"))
         opcionesElegidasPorJugador2.add(OpcionConjunto("2", "No es hacker", "2"))
         exclusividad.definirPuntosJugadoresEnPregunta(preguntaVoF, jugador1)
@@ -126,7 +126,7 @@ class ExclusividadTest {
         jugador1.elegirRespuestasAPreguntaActual(opcionesElegidasPorJugador1)
         jugador2.elegirRespuestasAPreguntaActual(opcionesElegidasPorJugador2)
         var exclusividad: Exclusividad = SinExclusividad()
-        exclusividad = preguntaVoF.activarExclusividad(exclusividad)
+        exclusividad = preguntaVoF.activarExclusividad(exclusividad)!!
         opcionesElegidasPorJugador1.add(OpcionConjunto("1", "Es QA", "1"))
         opcionesElegidasPorJugador2.add(OpcionConjunto("2", "No es hacker", "1"))
         exclusividad.definirPuntosJugadoresEnPregunta(preguntaVoF, jugador1)
@@ -146,7 +146,7 @@ class ExclusividadTest {
         jugador1.elegirRespuestasAPreguntaActual(opcionesElegidasPorJugador1)
         jugador2.elegirRespuestasAPreguntaActual(opcionesElegidasPorJugador2)
         var exclusividad: Exclusividad = SinExclusividad()
-        exclusividad = preguntaVoF.activarExclusividad(exclusividad)
+        exclusividad = preguntaVoF.activarExclusividad(exclusividad)!!
         opcionesElegidasPorJugador1.add(OpcionConjunto("1", "Es QA", "1"))
         opcionesElegidasPorJugador2.add(OpcionConjunto("2", "Es hacker", "2"))
         exclusividad.definirPuntosJugadoresEnPregunta(preguntaVoF, jugador1)
@@ -166,8 +166,8 @@ class ExclusividadTest {
         jugador1.elegirRespuestasAPreguntaActual(opcionesElegidasPorJugador1)
         jugador2.elegirRespuestasAPreguntaActual(opcionesElegidasPorJugador2)
         var exclusividad: Exclusividad = SinExclusividad()
-        exclusividad = preguntaVoF.activarExclusividad(exclusividad)
-        exclusividad = preguntaVoF.activarExclusividad(exclusividad)
+        exclusividad = preguntaVoF.activarExclusividad(exclusividad)!!
+        exclusividad = preguntaVoF.activarExclusividad(exclusividad)!!
         opcionesElegidasPorJugador1.add(OpcionConjunto("1", "Es QA", "1"))
         opcionesElegidasPorJugador2.add(OpcionConjunto("2", "No es hacker", "1"))
         exclusividad.definirPuntosJugadoresEnPregunta(preguntaVoF, jugador1)

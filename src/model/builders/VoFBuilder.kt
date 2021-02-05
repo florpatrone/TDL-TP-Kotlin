@@ -1,6 +1,7 @@
 package model.builders
 
 import model.Opcion
+import model.OpcionConjunto
 import model.Pregunta
 import model.comportamientos.Comportamiento
 import model.comportamientos.ComportamientoVoF
@@ -15,30 +16,30 @@ class VoFBuilder : Builder {
     private var textoPregunta: String? = null
     private var opciones: MutableList<Opcion>? = null
 
-    fun asignarComportamiento(tipoPuntaje: String) {
-        if (tipoPuntaje == "Clasico") {
-            comportamiento = ComportamientoVoF()
+    override fun asignarComportamiento(tipoPuntaje: String?) {
+        comportamiento = if (tipoPuntaje == "Clasico") {
+            ComportamientoVoF()
         } else if (tipoPuntaje == "Penalidad") {
-            comportamiento = ComportamientoVoFPenalidad()
+            ComportamientoVoFPenalidad()
         } else {
             throw DiferenteTipoPreguntaException()
         }
     }
 
-    fun setEnunciado(enunciado: String?) {
+    override fun construirPregunta(): Pregunta? {
+        return Pregunta(textoPregunta, comportamiento!!, opciones)
+    }
+
+    override fun setEnunciado(enunciado: String) {
         textoPregunta = enunciado
     }
 
-    fun setOpciones(opciones: List<OpcionSerializada?>) {
-        this.opciones = ArrayList<Opcion>()
-        opciones.forEach(Consumer<OpcionSerializada> { opcionSerializada: OpcionSerializada ->
-            this.opciones!!.add(
-                Opcion(opcionSerializada.getClave(), opcionSerializada.getTexto())
+    override fun setOpciones(opciones: List<OpcionSerializada?>?) {
+        this.opciones = ArrayList<Opcion?>()
+        opciones!!.forEach(Consumer { opcionSerializada: OpcionSerializada ->
+            this.opciones.add(
+                OpcionConjunto(opcionSerializada.getClave(), opcionSerializada.getTexto())
             )
         })
-    }
-
-    fun construirPregunta(): Pregunta {
-        return Pregunta(textoPregunta, comportamiento, opciones)
     }
 }

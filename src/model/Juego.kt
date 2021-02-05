@@ -67,7 +67,7 @@ class Juego : Observable {
         get() = if (jugadorActual!!.puntos > jugadorActual!!.jugadorSiguiente!!.puntos) jugadorActual else jugadorActual!!.jugadorSiguiente
 
     init {
-        preguntaActual = Parser().parsear()
+        preguntaActual = Parser().parsear()!!
         observers = ArrayList<Observer>()
     }
 }

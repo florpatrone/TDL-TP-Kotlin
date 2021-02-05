@@ -1,6 +1,5 @@
 package model.builders
 
-import model.Opcion
 import model.OpcionConjunto
 import model.Pregunta
 import model.comportamientos.Comportamiento
@@ -15,7 +14,11 @@ import java.util.function.Consumer
 class MultipleChoiceBuilder : Builder {
     var comportamiento: Comportamiento? = null
     private var textoPregunta: String? = null
-    private var opciones: List<OpcionSerializada?>? = null
+    private var opciones: ArrayList<OpcionConjunto>
+
+    constructor() {
+        opciones = ArrayList<OpcionConjunto>()
+    }
 
     override fun asignarComportamiento(tipoPuntaje: String?) {
         when (tipoPuntaje) {
@@ -34,11 +37,10 @@ class MultipleChoiceBuilder : Builder {
         textoPregunta = enunciado
     }
 
-    override fun setOpciones(opciones: List<OpcionSerializada?>?) {
-        this.opciones = ArrayList<Opcion?>()
-        opciones!!.forEach(Consumer { opcionSerializada: OpcionSerializada ->
+    override fun setOpciones(opciones: List<OpcionSerializada>) {
+        opciones.forEach(Consumer { opcionSerializada: OpcionSerializada ->
             this.opciones.add(
-                OpcionConjunto(opcionSerializada.getClave(), opcionSerializada.getTexto())
+                    OpcionConjunto(opcionSerializada.getClave(), opcionSerializada.getTexto())
             )
         })
     }

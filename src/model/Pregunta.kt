@@ -3,9 +3,9 @@ package model
 import model.comportamientos.Comportamiento
 import model.comportamientos.ComportamientoConExclusividad
 import model.comportamientos.ComportamientoConMultiplicador
-import model.data.OpcionSerializada
 import model.modificadores.Exclusividad
 import model.modificadores.Multiplicador
+import java.util.ArrayList
 
 public class Pregunta {
     var enunciado: String? = null
@@ -19,7 +19,7 @@ public class Pregunta {
         this.enunciado = enunciado
     }
 
-    constructor(enunciado: String?, comportamiento: Comportamiento?, opciones: List<OpcionSerializada?>?){
+    constructor(enunciado: String?, comportamiento: Comportamiento?, opciones: ArrayList<OpcionConjunto>){
         Pregunta(enunciado, comportamiento)
         this.opciones = opciones as List<Opcion>
     }

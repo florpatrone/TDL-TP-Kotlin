@@ -10,5 +10,5 @@ interface Builder {
 
     fun setEnunciado(enunciado: String)
 
-    fun setOpciones(opciones: List<OpcionSerializada?>?)
+    fun setOpciones(opciones: List<OpcionSerializada>)
 }

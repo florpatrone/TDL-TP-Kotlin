@@ -12,7 +12,7 @@ class DirectorPregunta(var tipoPuntaje: String?, var enunciado: String?, var opc
     }
 
     fun asignar(builder: Builder) {
-        builder.setOpciones(opciones)
+        builder.setOpciones(opciones as List<OpcionSerializada>)
         builder.asignarComportamiento(tipoPuntaje)
         builder.setEnunciado(enunciado!!)
     }

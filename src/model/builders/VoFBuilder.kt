@@ -14,7 +14,11 @@ import java.util.function.Consumer
 class VoFBuilder : Builder {
     var comportamiento: Comportamiento? = null
     private var textoPregunta: String? = null
-    private var opciones: MutableList<Opcion>? = null
+    private var opciones: ArrayList<OpcionConjunto>
+
+    constructor() {
+        opciones = ArrayList<OpcionConjunto>()
+    }
 
     override fun asignarComportamiento(tipoPuntaje: String?) {
         comportamiento = if (tipoPuntaje == "Clasico") {
@@ -34,11 +38,10 @@ class VoFBuilder : Builder {
         textoPregunta = enunciado
     }
 
-    override fun setOpciones(opciones: List<OpcionSerializada?>?) {
-        this.opciones = ArrayList<Opcion?>()
-        opciones!!.forEach(Consumer { opcionSerializada: OpcionSerializada ->
+    override fun setOpciones(opciones: List<OpcionSerializada>) {
+        opciones.forEach(Consumer { opcionSerializada: OpcionSerializada ->
             this.opciones.add(
-                OpcionConjunto(opcionSerializada.getClave(), opcionSerializada.getTexto())
+                    OpcionConjunto(opcionSerializada.getClave(), opcionSerializada.getTexto())
             )
         })
     }

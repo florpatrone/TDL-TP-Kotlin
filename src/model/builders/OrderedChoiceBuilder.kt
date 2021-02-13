@@ -10,8 +10,8 @@ import java.util.ArrayList
 import java.util.function.Consumer
 
 class OrderedChoiceBuilder : Builder {
-    var comportamiento: Comportamiento? = null
-    private var textoPregunta: String? = null
+    lateinit var comportamiento: Comportamiento
+    private lateinit var textoPregunta: String
     private var opciones: ArrayList<OpcionConjunto>
 
     constructor() {

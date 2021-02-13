@@ -10,21 +10,17 @@ import java.util.ArrayList
 import java.util.function.Consumer
 
 class OrderedChoiceBuilder : Builder {
-    var comportamiento: Comportamiento? = null
-    private var textoPregunta: String? = null
-    private var opciones: ArrayList<OpcionConjunto>
-
-    constructor() {
-        opciones = ArrayList<OpcionConjunto>()
-    }
+    lateinit var comportamiento: Comportamiento
+    private lateinit var textoPregunta: String
+    private var opciones: ArrayList<OpcionConjunto> = ArrayList<OpcionConjunto>()
 
     override fun asignarComportamiento(tipoPuntaje: String?) {
         if (tipoPuntaje != "Clasico") throw DiferenteTipoPreguntaException()
         comportamiento = ComportamientoOrderedChoice()
     }
 
-    override fun construirPregunta(): Pregunta? {
-        return Pregunta(textoPregunta, comportamiento!!, opciones)
+    override fun construirPregunta(): Pregunta {
+        return Pregunta(textoPregunta, comportamiento, opciones)
     }
 
     override fun setEnunciado(enunciado: String) {

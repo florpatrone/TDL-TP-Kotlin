@@ -20,28 +20,4 @@ class PreguntaSerializada {
     @Expose
     lateinit var puntajeType: String
 
-    //-----------------------------------------------------------------------------------------------------------
-    @JvmName("getType1")
-    fun getType(): String{
-        return type
-    }
-
-    @JvmName("getEnunciado1")
-    fun getEnunciado(): String{
-        return enunciado
-    }
-    @JvmName("setEnunciado1")
-    fun setEnunciado(enunciado: String){
-        this.enunciado = enunciado
-    }
-
-    @JvmName("getOptions1")
-    fun getOptions(): List<OpcionSerializada>{
-        return options
-    }
-
-    @JvmName("getPuntajeType1")
-    fun getPuntajeType(): String{
-        return puntajeType
-    }
 }

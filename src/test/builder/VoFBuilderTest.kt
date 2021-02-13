@@ -14,7 +14,7 @@ internal class VoFBuilderTest {
         val voFBuilder = VoFBuilder()
         voFBuilder.setOpciones(opciones)
         voFBuilder.asignarComportamiento("Clasico")
-        voFBuilder.setEnunciado("ejemplo")
+        voFBuilder.textoPregunta = "ejemplo"
         val vof: Pregunta = voFBuilder.construirPregunta()!!
         //TODO: Agregar test unitario que verifique los atributos de
         // pregunta como el enunciado y las opciones son correctas - 3/2 asserts

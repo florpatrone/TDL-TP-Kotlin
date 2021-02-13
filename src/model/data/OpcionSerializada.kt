@@ -12,14 +12,5 @@ class OpcionSerializada {
     @Expose
     lateinit var texto: String
 
-    @JvmName("getClave1")
-    fun getClave(): String{
-        return clave
-    }
-
-    @JvmName("getTexto1")
-    fun getTexto(): String{
-        return texto
-    }
 }
 

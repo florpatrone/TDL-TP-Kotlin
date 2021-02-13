@@ -14,7 +14,7 @@ internal class GroupChoiceBuilderTest {
         val groupChoiceBuilder = GroupChoiceBuilder()
         groupChoiceBuilder.setOpciones(opciones)
         groupChoiceBuilder.asignarComportamiento("Clasico")
-        groupChoiceBuilder.setEnunciado("ejemplo")
+        groupChoiceBuilder.textoPregunta = "ejemplo"
         val group: Pregunta? = groupChoiceBuilder.construirPregunta()
         //TODO: Agregar test unitario que verifique los atributos de
         // pregunta como el enunciado y las opciones son correctas - 3/2 asserts

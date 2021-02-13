@@ -3,11 +3,11 @@ package model.builders
 import model.data.OpcionSerializada
 import model.data.PreguntaSerializada
 
-class DirectorPregunta(var tipoPuntaje: String?, var enunciado: String?, var opciones: List<OpcionSerializada?>?) {
+class DirectorPregunta(var tipoPuntaje: String?, var enunciado: String, var opciones: List<OpcionSerializada?>?) {
     constructor(preguntaSerializada: PreguntaSerializada) : this(
-        preguntaSerializada.getPuntajeType(),
-        preguntaSerializada.getEnunciado(),
-        preguntaSerializada.getOptions()
+        preguntaSerializada.puntajeType,
+        preguntaSerializada.enunciado,
+        preguntaSerializada.options
     ) {
 
     }
@@ -16,6 +16,6 @@ class DirectorPregunta(var tipoPuntaje: String?, var enunciado: String?, var opc
     fun asignar(builder: Builder) {
         builder.setOpciones(opciones as List<OpcionSerializada>)
         builder.asignarComportamiento(tipoPuntaje)
-        builder.setEnunciado(enunciado!!)
+        builder.textoPregunta = enunciado
     }
 }

@@ -14,7 +14,7 @@ internal class MultipleChoiceBuilderTest {
         val multipleChoiceBuilder = MultipleChoiceBuilder()
         multipleChoiceBuilder.setOpciones(opciones)
         multipleChoiceBuilder.asignarComportamiento("Clasico")
-        multipleChoiceBuilder.setEnunciado("ejemplo")
+        multipleChoiceBuilder.textoPregunta ="ejemplo"
         val mc: Pregunta = multipleChoiceBuilder.construirPregunta()!!
         //TODO: Agregar test unitario que verifique los atributos de
         // pregunta como el enunciado y las opciones son correctas - 3/2 asserts

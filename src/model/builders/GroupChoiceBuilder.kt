@@ -10,8 +10,8 @@ import java.util.ArrayList
 import java.util.function.Consumer
 
 class GroupChoiceBuilder : Builder {
-    var comportamiento: Comportamiento? = null
-    private var textoPregunta: String? = null
+    lateinit var comportamiento: Comportamiento
+    override lateinit var textoPregunta: String
     private var opciones: ArrayList<OpcionConjunto>
 
     constructor() {
@@ -23,18 +23,14 @@ class GroupChoiceBuilder : Builder {
         comportamiento = ComportamientoGroupChoice()
     }
 
-    override fun construirPregunta(): Pregunta? {
-        return Pregunta(textoPregunta, comportamiento!!, opciones)
-    }
-
-    override fun setEnunciado(enunciado: String) {
-        textoPregunta = enunciado
+    override fun construirPregunta(): Pregunta {
+        return Pregunta(textoPregunta, comportamiento, opciones)
     }
 
     override fun setOpciones(opciones: List<OpcionSerializada>) {
         opciones.forEach(Consumer { opcionSerializada: OpcionSerializada ->
             this.opciones.add(
-                    OpcionConjunto(opcionSerializada.getClave(), opcionSerializada.getTexto())
+                    OpcionConjunto(opcionSerializada.clave, opcionSerializada.texto)
             )
         })
     }

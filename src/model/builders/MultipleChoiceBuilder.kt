@@ -13,7 +13,7 @@ import java.util.function.Consumer
 
 class MultipleChoiceBuilder : Builder {
     lateinit var comportamiento: Comportamiento
-    private lateinit var textoPregunta: String
+    override lateinit var textoPregunta: String
     private var opciones: ArrayList<OpcionConjunto> = ArrayList<OpcionConjunto>()
 
     override fun asignarComportamiento(tipoPuntaje: String?) {
@@ -29,14 +29,11 @@ class MultipleChoiceBuilder : Builder {
         return Pregunta(textoPregunta, comportamiento, opciones)
     }
 
-    override fun setEnunciado(enunciado: String) {
-        textoPregunta = enunciado
-    }
 
     override fun setOpciones(opciones: List<OpcionSerializada>) {
         opciones.forEach(Consumer { opcionSerializada: OpcionSerializada ->
             this.opciones.add(
-                    OpcionConjunto(opcionSerializada.getClave(), opcionSerializada.getTexto())
+                    OpcionConjunto(opcionSerializada.clave, opcionSerializada.texto)
             )
         })
     }

@@ -16,28 +16,28 @@ class Parser {
     private fun convertirPreguntas(preguntaSerializadas: List<PreguntaSerializada>?): Pregunta? {
         val preguntas = ArrayList<Pregunta>()
         preguntaSerializadas?.forEach(Consumer<PreguntaSerializada> { preguntaSerializada: PreguntaSerializada ->
-            val tipoPregunta: String? = preguntaSerializada.getType()
+            val tipoPregunta: String? = preguntaSerializada.type
             val director = DirectorPregunta(preguntaSerializada)
             when (tipoPregunta) {
                 "vof" -> {
                     val voFBuilder = VoFBuilder()
                     director.asignar(voFBuilder)
-                    preguntas.add(voFBuilder.construirPregunta()!!)
+                    preguntas.add(voFBuilder.construirPregunta())
                 }
                 "multiple" -> {
                     val multipleChoiceBuilder = MultipleChoiceBuilder()
                     director.asignar(multipleChoiceBuilder)
-                    preguntas.add(multipleChoiceBuilder.construirPregunta()!!)
+                    preguntas.add(multipleChoiceBuilder.construirPregunta())
                 }
                 "order" -> {
                     val orderedChoiceBuilder = OrderedChoiceBuilder()
                     director.asignar(orderedChoiceBuilder)
-                    preguntas.add(orderedChoiceBuilder.construirPregunta()!!)
+                    preguntas.add(orderedChoiceBuilder.construirPregunta())
                 }
                 else -> {
                     val groupChoiceBuilder = GroupChoiceBuilder()
                     director.asignar(groupChoiceBuilder)
-                    preguntas.add(groupChoiceBuilder.construirPregunta()!!)
+                    preguntas.add(groupChoiceBuilder.construirPregunta())
                 }
             }
         })

@@ -70,4 +70,5 @@ class Juego : Observable {
         preguntaActual = Parser().parsear()!!
         observers = ArrayList<Observer>()
     }
+    //
 }

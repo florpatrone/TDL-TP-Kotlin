@@ -19,7 +19,7 @@ class ComportamientoVoF : Comportamiento, ComportamientoConExclusividad {
     override val tipoPregunta: String
         get() = "Verdadero o Falso"
 
-    override fun activarExclusividad(exclusividad: Exclusividad?): Exclusividad? {
-        return exclusividad!!.activarExclusividad()
+    override fun activarExclusividad(exclusividad: Exclusividad): Exclusividad {
+        return exclusividad.activarExclusividad()
     }
 }

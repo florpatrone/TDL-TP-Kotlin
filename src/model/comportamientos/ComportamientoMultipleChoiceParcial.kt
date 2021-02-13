@@ -19,7 +19,7 @@ class ComportamientoMultipleChoiceParcial : Comportamiento, ComportamientoConExc
     override val tipoPregunta: String
         get() = "Multiple Choice Parcial"
 
-    override fun activarExclusividad(exclusividad: Exclusividad?): Exclusividad {
-        return exclusividad!!.activarExclusividad()!!
+    override fun activarExclusividad(exclusividad: Exclusividad): Exclusividad {
+        return exclusividad.activarExclusividad()
     }
 }

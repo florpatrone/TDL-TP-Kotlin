@@ -19,7 +19,7 @@ class ComportamientoMultipleChoiceClasico : Comportamiento,ComportamientoConExcl
     override val tipoPregunta: String
         get() = "Multiple Choice Clasico"
 
-    override fun activarExclusividad(exclusividad: Exclusividad?): Exclusividad {
-        return exclusividad!!.activarExclusividad()!!
+    override fun activarExclusividad(exclusividad: Exclusividad): Exclusividad {
+        return exclusividad.activarExclusividad()
     }
 }

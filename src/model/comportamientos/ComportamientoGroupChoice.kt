@@ -19,7 +19,7 @@ class ComportamientoGroupChoice : Comportamiento, ComportamientoConExclusividad 
     override val tipoPregunta: String
         get() = "Group Choice"
 
-    override fun activarExclusividad(exclusividad: Exclusividad?): Exclusividad? {
-        return exclusividad!!.activarExclusividad()
+    override fun activarExclusividad(exclusividad: Exclusividad): Exclusividad {
+        return exclusividad.activarExclusividad()
     }
 }

@@ -8,53 +8,38 @@ import model.modificadores.Multiplicador
 import java.util.ArrayList
 
 public class Pregunta {
-    var enunciado: String? = null
+    lateinit var enunciado: String
     private var opciones: List<Opcion>? = null
-    private var comportamiento: Comportamiento? = null
-    var siguientePregunta: Pregunta? = null
+    lateinit var comportamiento: Comportamiento
+    lateinit var siguientePregunta: Pregunta
 
 
-    constructor(enunciado: String?, comportamiento: Comportamiento?){
+    constructor(enunciado: String, comportamiento: Comportamiento){
         this.comportamiento = comportamiento
         this.enunciado = enunciado
     }
 
-    constructor(enunciado: String?, comportamiento: Comportamiento?, opciones: ArrayList<OpcionConjunto>){
+    constructor(enunciado: String, comportamiento: Comportamiento, opciones: ArrayList<OpcionConjunto>){
         Pregunta(enunciado, comportamiento)
         this.opciones = opciones as List<Opcion>
     }
 
-    val tipoPregunta: String?
-        get() = comportamiento?.tipoPregunta
+    val tipoPregunta: String
+        get() = comportamiento.tipoPregunta
 
     fun obtenerPuntaje(opcionesElegidasPorElJugador: List<Opcion>): Int {
-        return comportamiento?.obtenerPuntaje(opcionesElegidasPorElJugador)!!
-    }
-
-    @JvmName("getSiguientePregunta1")
-    fun getSiguientePregunta(): Pregunta? {
-        return siguientePregunta
-    }
-
-    @JvmName("setSiguientePregunta1")
-    fun setSiguientePregunta(siguientePregunta: Pregunta?) {
-        this.siguientePregunta = siguientePregunta
-    }
-
-    @JvmName("getTipoPregunta1")
-    fun getTipoPregunta(): String? {
-        return comportamiento?.tipoPregunta
+        return comportamiento.obtenerPuntaje(opcionesElegidasPorElJugador)!!
     }
 
     fun obtenerPuntaje(opcionesDeJugador: List<Opcion?>?, multiplicador: Multiplicador): Int {
-        return multiplicador.modificarPuntos(comportamiento!!.obtenerPuntaje(opcionesDeJugador as List<Opcion>))
+        return multiplicador.modificarPuntos(comportamiento.obtenerPuntaje(opcionesDeJugador as List<Opcion>))
     }
 
-    fun agregarMultiplicadorAJugador(jugador: Jugador?, multiplicador: Multiplicador?) {
+    fun agregarMultiplicadorAJugador(jugador: Jugador, multiplicador: Multiplicador) {
         (comportamiento as ComportamientoConMultiplicador).agregarMultiplicadorAJugador(jugador, multiplicador)
     }
 
-    fun activarExclusividad(exclusividad: Exclusividad?): Exclusividad? {
+    fun activarExclusividad(exclusividad: Exclusividad): Exclusividad {
         return (comportamiento as ComportamientoConExclusividad).activarExclusividad(exclusividad)
     }
 }

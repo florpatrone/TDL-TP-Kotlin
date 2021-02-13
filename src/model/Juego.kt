@@ -7,16 +7,16 @@ import model.modificadores.SinExclusividad
 import java.util.ArrayList
 
 class Juego : Observable {
-    private var jugadorInicial: Jugador? = null
-    var jugadorActual: Jugador? = null
-        private set
+    lateinit var jugadorInicial: Jugador
+    lateinit var jugadorActual: Jugador
     var preguntaActual: Pregunta
-        private set
-    var exclusividadActual: Exclusividad? = null
+    lateinit var exclusividadActual: Exclusividad
     private val observers: ArrayList<Observer>
-    fun empezarJuego(nombreJugador1: String?, nombreJugador2: String?) {
-        val jugador1 = Jugador(nombreJugador1!!)
-        val jugador2 = Jugador(nombreJugador2!!)
+
+
+    fun empezarJuego(nombreJugador1: String, nombreJugador2: String) {
+        val jugador1 = Jugador(nombreJugador1)
+        val jugador2 = Jugador(nombreJugador2)
         jugador1.jugadorSiguiente = jugador2
         jugador2.jugadorSiguiente = jugador1
         jugadorInicial = jugador1
@@ -25,16 +25,16 @@ class Juego : Observable {
         notifyObservers()
     }
 
-    private fun elegirRespuestasAPreguntaActual(respuestasElegidas: ArrayList<Opcion>): Jugador? {
-        jugadorActual!!.elegirRespuestasAPreguntaActual(respuestasElegidas)
-        return jugadorActual!!.jugadorSiguiente
+    private fun elegirRespuestasAPreguntaActual(respuestasElegidas: ArrayList<Opcion>): Jugador {
+        jugadorActual.elegirRespuestasAPreguntaActual(respuestasElegidas)
+        return jugadorActual.jugadorSiguiente
     }
 
     fun siguienteTurno(respuestasElegidas: ArrayList<Opcion>) {
         jugadorActual = elegirRespuestasAPreguntaActual(respuestasElegidas)
         if (jugadorActual === jugadorInicial) {
-            exclusividadActual?.definirPuntosJugadoresEnPregunta(preguntaActual, jugadorActual)
-            preguntaActual = preguntaActual.siguientePregunta!!
+            exclusividadActual.definirPuntosJugadoresEnPregunta(preguntaActual, jugadorActual)
+            preguntaActual = preguntaActual.siguientePregunta
             exclusividadActual = SinExclusividad()
         }
         notifyObservers()
@@ -63,8 +63,8 @@ class Juego : Observable {
         observers.forEach(Observer::update)
     }
 
-    val ganador: Jugador?
-        get() = if (jugadorActual!!.puntos > jugadorActual!!.jugadorSiguiente!!.puntos) jugadorActual else jugadorActual!!.jugadorSiguiente
+    val ganador: Jugador
+        get() = if (jugadorActual.puntos > jugadorActual.jugadorSiguiente.puntos) jugadorActual else jugadorActual.jugadorSiguiente
 
     init {
         preguntaActual = Parser().parsear()!!

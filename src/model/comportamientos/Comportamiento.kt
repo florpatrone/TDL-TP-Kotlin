@@ -29,7 +29,7 @@ abstract class Comportamiento {
         return puntaje.getPuntajeAcumulado()
     }
 
-    abstract val tipoPregunta: String?
+    abstract val tipoPregunta: String
 
     protected abstract fun crearPuntaje(): Puntaje
 }

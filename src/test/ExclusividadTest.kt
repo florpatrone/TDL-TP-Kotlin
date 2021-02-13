@@ -27,7 +27,7 @@ class ExclusividadTest {
         opcionesElegidasPorJugador1.add(OpcionConjunto("1", "Es QA", "1"))
         opcionesElegidasPorJugador2.add(OpcionConjunto("2", "No es hacker", "1"))
         jugador1.elegirOpciones(opcionesElegidasPorJugador1)
-        jugador1.getJugadorSiguiente()?.elegirOpciones(opcionesElegidasPorJugador2)
+        jugador1.jugadorSiguiente.elegirOpciones(opcionesElegidasPorJugador2)
         exclusividad.definirPuntosJugadoresEnPregunta(preguntaVoF, jugador1)
         Assertions.assertEquals(2, jugador1.puntos)
         Assertions.assertEquals(0, jugador2.puntos)

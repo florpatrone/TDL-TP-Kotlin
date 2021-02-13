@@ -50,9 +50,9 @@ class Parser {
         var siguiente: Pregunta
         if (preguntas.size > 1) {
             siguiente = preguntas[1]
-            actual.setSiguientePregunta(siguiente)
+            actual.siguientePregunta = siguiente
             for (i in 2 until preguntas.size) { //4 ("")
-                siguiente.setSiguientePregunta(preguntas[i])
+                siguiente.siguientePregunta = preguntas[i]
                 siguiente = preguntas[i]
             }
         }

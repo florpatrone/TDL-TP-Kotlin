@@ -20,7 +20,7 @@ class ComportamientoVoFPenalidad : Comportamiento, ComportamientoConMultiplicado
     override val tipoPregunta: String
         get() = "Verdadero o Falso Penalidad"
 
-    override fun agregarMultiplicadorAJugador(jugador: Jugador?, multiplicador: Multiplicador?) {
-        jugador!!.setMultiplicador(multiplicador!!)
+    override fun agregarMultiplicadorAJugador(jugador: Jugador, multiplicador: Multiplicador) {
+        jugador.multiplicadorClase = multiplicador
     }
 }

@@ -9,7 +9,7 @@ import model.modificadores.Multiplicador
 
 class ComportamientoMultipleChoicePenalidad : Comportamiento, ComportamientoConMultiplicador {
     constructor() {}
-    constructor(opciones: List<Opcion?>) {
+    constructor(opciones: List<Opcion>) {
         if (opciones.size < 2 || opciones.size > 5) throw CantidadDeOpcionesInvalidasException()
     }
 
@@ -20,7 +20,7 @@ class ComportamientoMultipleChoicePenalidad : Comportamiento, ComportamientoConM
     override val tipoPregunta: String
         get() = "Multiple Choice Penalidad"
 
-    override fun agregarMultiplicadorAJugador(jugador: Jugador?, multiplicador: Multiplicador?) {
-        jugador!!.setMultiplicador(multiplicador!!)
+    override fun agregarMultiplicadorAJugador(jugador: Jugador, multiplicador: Multiplicador) {
+        jugador.multiplicadorClase = multiplicador
     }
 }

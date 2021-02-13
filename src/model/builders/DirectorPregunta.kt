@@ -9,8 +9,10 @@ class DirectorPregunta(var tipoPuntaje: String?, var enunciado: String?, var opc
         preguntaSerializada.getEnunciado(),
         preguntaSerializada.getOptions()
     ) {
+
     }
 
+    @Suppress("UNCHECKED_CAST")
     fun asignar(builder: Builder) {
         builder.setOpciones(opciones as List<OpcionSerializada>)
         builder.asignarComportamiento(tipoPuntaje)

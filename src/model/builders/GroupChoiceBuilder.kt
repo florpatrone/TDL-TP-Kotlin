@@ -12,19 +12,15 @@ import java.util.function.Consumer
 class GroupChoiceBuilder : Builder {
     lateinit var comportamiento: Comportamiento
     private lateinit var textoPregunta: String
-    private var opciones: ArrayList<OpcionConjunto>
-
-    constructor() {
-        opciones = ArrayList<OpcionConjunto>()
-    }
+    private var opciones: ArrayList<OpcionConjunto> = ArrayList<OpcionConjunto>()
 
     override fun asignarComportamiento(tipoPuntaje: String?) {
         if (tipoPuntaje != "Clasico") throw DiferenteTipoPreguntaException()
         comportamiento = ComportamientoGroupChoice()
     }
 
-    override fun construirPregunta(): Pregunta? {
-        return Pregunta(textoPregunta, comportamiento!!, opciones)
+    override fun construirPregunta(): Pregunta {
+        return Pregunta(textoPregunta, comportamiento, opciones)
     }
 
     override fun setEnunciado(enunciado: String) {

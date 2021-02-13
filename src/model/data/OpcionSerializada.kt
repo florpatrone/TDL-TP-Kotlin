@@ -6,19 +6,19 @@ import com.google.gson.annotations.SerializedName
 class OpcionSerializada {
     @SerializedName("clave")
     @Expose
-    val clave: String? = null
+    lateinit var clave: String
 
     @SerializedName("texto")
     @Expose
-    val texto: String? = null
+    lateinit var texto: String
 
     @JvmName("getClave1")
-    fun getClave(): String? {
+    fun getClave(): String{
         return clave
     }
 
     @JvmName("getTexto1")
-    fun getTexto(): String? {
+    fun getTexto(): String{
         return texto
     }
 }

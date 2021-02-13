@@ -14,23 +14,19 @@ import java.util.function.Consumer
 class MultipleChoiceBuilder : Builder {
     lateinit var comportamiento: Comportamiento
     private lateinit var textoPregunta: String
-    private var opciones: ArrayList<OpcionConjunto>
-
-    constructor() {
-        opciones = ArrayList<OpcionConjunto>()
-    }
+    private var opciones: ArrayList<OpcionConjunto> = ArrayList<OpcionConjunto>()
 
     override fun asignarComportamiento(tipoPuntaje: String?) {
-        when (tipoPuntaje) {
-            "Clasico" -> comportamiento = ComportamientoMultipleChoiceClasico()
-            "Parcial" -> comportamiento = ComportamientoMultipleChoiceParcial()
-            "Penalidad" -> comportamiento = ComportamientoMultipleChoicePenalidad()
+        comportamiento = when (tipoPuntaje) {
+            "Clasico" -> ComportamientoMultipleChoiceClasico()
+            "Parcial" -> ComportamientoMultipleChoiceParcial()
+            "Penalidad" -> ComportamientoMultipleChoicePenalidad()
             else -> throw DiferenteTipoPreguntaException()
         }
     }
 
-    override fun construirPregunta(): Pregunta? {
-        return Pregunta(textoPregunta, comportamiento!!, opciones)
+    override fun construirPregunta(): Pregunta {
+        return Pregunta(textoPregunta, comportamiento, opciones)
     }
 
     override fun setEnunciado(enunciado: String) {

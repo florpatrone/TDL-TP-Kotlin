@@ -2,6 +2,7 @@ package com.Hoot.hoot
 
 import dao.PreguntaRepository
 import model.Pregunta
+import model.excepciones.BusinessException
 import org.springframework.beans.factory.annotation.Autowired
 import org.springframework.stereotype.Service
 
@@ -13,8 +14,10 @@ class PreguntaBusiness: IPreguntaBusiness {
 
     override fun list(): List<Pregunta> {
         try{
-
-        }catch (e)
+            return PreguntaRepository!!.findAll()
+        }catch (e: Exception){
+            throw BusinessException(e.message)
+        }
     }
 
     override fun load(idPregunta: Long): Pregunta {

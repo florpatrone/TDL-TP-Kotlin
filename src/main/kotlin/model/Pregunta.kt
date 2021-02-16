@@ -7,12 +7,17 @@ import model.modificadores.Exclusividad
 import model.modificadores.Multiplicador
 import java.util.ArrayList
 
-public class Pregunta {
+
+/*@Entity
+@Table(name = "pregunta")
+@Id
+@GeneratedValue(strategy = GenerationType.AUTO)
+var id:Long = 0*/
+class Pregunta {
     lateinit var enunciado: String
     private var opciones: List<Opcion>? = null
     lateinit var comportamiento: Comportamiento
     lateinit var siguientePregunta: Pregunta
-
 
     constructor(enunciado: String, comportamiento: Comportamiento){
         this.comportamiento = comportamiento
@@ -21,14 +26,14 @@ public class Pregunta {
 
     constructor(enunciado: String, comportamiento: Comportamiento, opciones: ArrayList<OpcionConjunto>){
         Pregunta(enunciado, comportamiento)
-        this.opciones = opciones as List<Opcion>
+        this.opciones = opciones
     }
 
     val tipoPregunta: String
         get() = comportamiento.tipoPregunta
 
     fun obtenerPuntaje(opcionesElegidasPorElJugador: List<Opcion>): Int {
-        return comportamiento.obtenerPuntaje(opcionesElegidasPorElJugador)!!
+        return comportamiento.obtenerPuntaje(opcionesElegidasPorElJugador)
     }
 
     fun obtenerPuntaje(opcionesDeJugador: List<Opcion?>?, multiplicador: Multiplicador): Int {

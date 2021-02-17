@@ -3,6 +3,7 @@ package com.Hoot.hoot
 import dao.PreguntaRepository
 import javassist.NotFoundException
 import model.Pregunta
+import model.data.FormatoPregunta
 import model.excepciones.BusinessException
 import org.springframework.beans.factory.annotation.Autowired
 import org.springframework.stereotype.Service
@@ -16,7 +17,7 @@ class PreguntaBusiness: IPreguntaBusiness {
     val preguntaRepository : PreguntaRepository? = null
 
     @Throws(BusinessException::class)
-    override fun list(): List<Pregunta> {
+    override fun list(): List<FormatoPregunta> {
         try{
             return preguntaRepository!!.findAll()
         }catch (e: Exception){
@@ -25,8 +26,8 @@ class PreguntaBusiness: IPreguntaBusiness {
     }
 
     @Throws(BusinessException::class, NotFoundException::class)
-    override fun load(idPregunta: Long): Pregunta {
-        val op: Optional<Pregunta>
+    override fun load(idPregunta: Long): FormatoPregunta {
+        val op: Optional<FormatoPregunta>
         try{
             op = preguntaRepository!!.findById(idPregunta)
         }catch (e:Exception){
@@ -41,7 +42,7 @@ class PreguntaBusiness: IPreguntaBusiness {
     }
 
 
-    override fun save(pregunta: Pregunta): Pregunta {
+    override fun save(pregunta: FormatoPregunta): FormatoPregunta {
         try {
             return preguntaRepository!!.save(pregunta)
         }catch (e:Exception){
@@ -50,7 +51,7 @@ class PreguntaBusiness: IPreguntaBusiness {
     }
 
     override fun remove(idPregunta: Long) {
-        val op: Optional<Pregunta>
+        val op: Optional<FormatoPregunta>
         try{
             op = preguntaRepository!!.findById(idPregunta)
         }catch (e:Exception){

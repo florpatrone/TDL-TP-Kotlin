@@ -1,10 +1,6 @@
 package test
 
 import model.Jugador
-import model.Opcion
-import model.OpcionConjunto
-import model.Pregunta
-import model.comportamientos.ComportamientoGroupChoice
 import org.junit.jupiter.api.Assertions
 import org.junit.jupiter.api.Test
 import java.util.ArrayList

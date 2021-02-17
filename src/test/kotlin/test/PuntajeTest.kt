@@ -2,8 +2,6 @@ package test
 
 import model.Puntaje
 import model.PuntajeClasico
-import model.PuntajeParcial
-import model.PuntajePenalidad
 import org.junit.jupiter.api.Assertions
 import org.junit.jupiter.api.Test
 

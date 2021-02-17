@@ -1,9 +1,6 @@
 package test
 
 import model.Jugador
-import model.Opcion
-import model.OpcionConjunto
-import model.Pregunta
 import model.comportamientos.ComportamientoMultipleChoiceClasico
 import model.comportamientos.ComportamientoVoF
 import model.modificadores.Exclusividad

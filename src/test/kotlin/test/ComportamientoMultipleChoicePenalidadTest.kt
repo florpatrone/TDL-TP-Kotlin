@@ -1,12 +1,8 @@
 package test
 
-import model.Opcion
-import model.OpcionConjunto
-import model.Pregunta
 import org.junit.jupiter.api.Assertions
 import org.junit.jupiter.api.Test
 import java.util.ArrayList
-import model.comportamientos.ComportamientoMultipleChoicePenalidad
 
 
 class ComportamientoMultipleChoicePenalidadTest {

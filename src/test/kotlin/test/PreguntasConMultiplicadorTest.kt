@@ -1,11 +1,6 @@
 package test
 
 import model.Jugador
-import model.Opcion
-import model.OpcionConjunto
-import model.Pregunta
-import model.comportamientos.ComportamientoMultipleChoicePenalidad
-import model.comportamientos.ComportamientoVoFPenalidad
 import model.modificadores.*
 import org.junit.jupiter.api.Assertions
 import org.junit.jupiter.api.Test

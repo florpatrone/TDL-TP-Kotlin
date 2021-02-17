@@ -1,13 +1,8 @@
 package test
 
 import model.Jugador
-import model.Opcion
-import model.OpcionConjunto
-import model.Pregunta
 import model.comportamientos.ComportamientoMultipleChoiceClasico
-import model.comportamientos.ComportamientoMultipleChoiceParcial
 import model.comportamientos.ComportamientoVoF
-import model.comportamientos.ComportamientoVoFPenalidad
 import org.junit.jupiter.api.Assertions
 import org.junit.jupiter.api.Test
 import java.util.ArrayList

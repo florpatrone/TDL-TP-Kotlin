@@ -1,11 +1,7 @@
 package model.builders
 
-import model.OpcionConjunto
-import model.Pregunta
 import model.comportamientos.Comportamiento
 import model.comportamientos.ComportamientoMultipleChoiceClasico
-import model.comportamientos.ComportamientoMultipleChoiceParcial
-import model.comportamientos.ComportamientoMultipleChoicePenalidad
 import model.data.OpcionSerializada
 import model.excepciones.DiferenteTipoPreguntaException
 import java.util.ArrayList

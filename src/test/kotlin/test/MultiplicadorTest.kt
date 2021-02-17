@@ -1,10 +1,5 @@
 package test
 
-import model.Opcion
-import model.OpcionConjunto
-import model.Pregunta
-import model.comportamientos.ComportamientoMultipleChoicePenalidad
-import model.comportamientos.ComportamientoVoFPenalidad
 import model.modificadores.Multiplicador
 import model.modificadores.MultiplicadorX2
 import model.modificadores.MultiplicadorX3

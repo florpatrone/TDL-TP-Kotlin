@@ -1,6 +1,5 @@
 package test.builder
 
-import model.Pregunta
 import model.builders.MultipleChoiceBuilder
 import model.data.OpcionSerializada
 import org.junit.jupiter.api.Assertions

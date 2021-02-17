@@ -1,7 +1,6 @@
 package model.modificadores
 
 import model.Jugador
-import model.Pregunta
 
 interface Exclusividad {
     fun definirPuntosJugadoresEnPregunta(pregunta: Pregunta, jugadorActual: Jugador)

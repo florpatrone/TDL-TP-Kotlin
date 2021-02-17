@@ -1,7 +1,5 @@
 package com.Hoot.hoot
 
-import model.Pregunta
-import model.data.FormatoPregunta
 import model.data.Respuesta
 
 interface IRespuestaBusiness {

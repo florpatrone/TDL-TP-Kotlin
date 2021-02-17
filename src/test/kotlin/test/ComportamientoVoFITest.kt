@@ -1,8 +1,5 @@
 package test
 
-import model.Opcion
-import model.OpcionConjunto
-import model.Pregunta
 import model.comportamientos.ComportamientoVoF
 import org.junit.jupiter.api.Assertions
 import org.junit.jupiter.api.Test

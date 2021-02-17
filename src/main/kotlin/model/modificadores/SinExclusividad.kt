@@ -1,7 +1,6 @@
 package model.modificadores
 
 import model.Jugador
-import model.Pregunta
 
 class SinExclusividad : Exclusividad {
     override fun activarExclusividad(): Exclusividad {

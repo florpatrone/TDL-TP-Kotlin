@@ -1,6 +1,5 @@
 package model.comportamientos
 
-import model.Opcion
 import model.Puntaje
 import model.PuntajeClasico
 import model.excepciones.CantidadDeOpcionesInvalidasException

@@ -1,12 +1,11 @@
 package com.Hoot.hoot
 
-import model.Pregunta
-import model.data.FormatoPregunta
+import model.data.Pregunta
 
 interface IPreguntaBusiness {
 
-    fun list(): List<FormatoPregunta>
-    fun load(idPregunta:Long): FormatoPregunta
-    fun save(pregunta:FormatoPregunta): FormatoPregunta
+    fun list(): List<Pregunta>
+    fun load(idPregunta:Long): Pregunta
+    fun save(pregunta:Pregunta): Pregunta
     fun remove(idPregunta:Long)
 }

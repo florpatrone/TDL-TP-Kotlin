@@ -1,10 +1,7 @@
 package model.builders
 
-import model.OpcionConjunto
-import model.Pregunta
 import model.comportamientos.Comportamiento
 import model.comportamientos.ComportamientoVoF
-import model.comportamientos.ComportamientoVoFPenalidad
 import model.data.OpcionSerializada
 import model.excepciones.DiferenteTipoPreguntaException
 import java.util.ArrayList

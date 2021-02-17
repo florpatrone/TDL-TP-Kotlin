@@ -1,7 +1,6 @@
 package model.modificadores
 
 import model.Jugador
-import model.Pregunta
 
 class ExclusividadX4 : Exclusividad {
     private val valorExclusividad = 4

@@ -1,16 +1,15 @@
 package model
 
-import model.modificadores.Exclusividad
-import model.modificadores.MultiplicadorX2
-import model.modificadores.MultiplicadorX3
-import model.modificadores.SinExclusividad
+
+import model.data.Pregunta
+import model.data.Respuesta
 import java.util.ArrayList
 
 class Juego : Observable {
     lateinit var jugadorInicial: Jugador
     lateinit var jugadorActual: Jugador
     var preguntaActual: Pregunta
-    lateinit var exclusividadActual: Exclusividad
+    var preguntas: ArrayList<Pregunta>
     private val observers: ArrayList<Observer>
 
 
@@ -21,35 +20,20 @@ class Juego : Observable {
         jugador2.jugadorSiguiente = jugador1
         jugadorInicial = jugador1
         jugadorActual = jugadorInicial
-        exclusividadActual = SinExclusividad()
         notifyObservers()
     }
 
-    private fun elegirRespuestasAPreguntaActual(respuestasElegidas: ArrayList<Opcion>): Jugador {
+    private fun elegirRespuestasAPreguntaActual(respuestasElegidas: ArrayList<Respuesta>): Jugador {
         jugadorActual.elegirRespuestasAPreguntaActual(respuestasElegidas)
         return jugadorActual.jugadorSiguiente
     }
 
-    fun siguienteTurno(respuestasElegidas: ArrayList<Opcion>) {
+    fun siguienteTurno(respuestasElegidas: ArrayList<Respuesta>) {
         jugadorActual = elegirRespuestasAPreguntaActual(respuestasElegidas)
         if (jugadorActual === jugadorInicial) {
-            exclusividadActual.definirPuntosJugadoresEnPregunta(preguntaActual, jugadorActual)
-            preguntaActual = preguntaActual.siguientePregunta
-            exclusividadActual = SinExclusividad()
+            //preguntaActual = preguntaActual.siguientePregunta
         }
         notifyObservers()
-    }
-
-    fun activarExclusividad() {
-        exclusividadActual = preguntaActual.activarExclusividad(exclusividadActual)
-    }
-
-    fun activarMultiplicadorX2() {
-        preguntaActual.agregarMultiplicadorAJugador(jugadorActual, MultiplicadorX2())
-    }
-
-    fun activarMultiplicadorX3() {
-        preguntaActual.agregarMultiplicadorAJugador(jugadorActual, MultiplicadorX3())
     }
 
     val tipoPregunta: String?
@@ -67,7 +51,8 @@ class Juego : Observable {
         get() = if (jugadorActual.puntos > jugadorActual.jugadorSiguiente.puntos) jugadorActual else jugadorActual.jugadorSiguiente
 
     init {
-        preguntaActual = Parser().parsear()!!
+        preguntaActual = Pregunta()
+        preguntas = ArrayList<Pregunta>()
         observers = ArrayList<Observer>()
     }
 }

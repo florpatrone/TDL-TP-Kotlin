@@ -1,35 +1,24 @@
 package model
 
-import model.modificadores.Multiplicador
-import model.modificadores.MultiplicadorBasico
+
+import model.data.Respuesta
 import java.util.*
 
 class Jugador(val nombre: String) {
     var puntos = 0
-    var multiplicadorClase: Multiplicador
-    var respuestasElegidas: ArrayList<Opcion>
+    var respuestasElegidas: ArrayList<Respuesta>
     lateinit var jugadorSiguiente: Jugador
-
-    fun elegirOpciones(respuestasElegidas: ArrayList<Opcion>) {
-        this.respuestasElegidas = respuestasElegidas
-    }
 
 
     fun ganarPuntaje(puntaje: Int) {
-        puntos += multiplicadorClase.modificarPuntos(puntaje)
-        multiplicadorClase = MultiplicadorBasico()
+        puntos += puntaje
     }
 
-    fun procesarPregunta(pregunta: Pregunta, respuestas: List<Opcion?>?) {
-        ganarPuntaje(pregunta.obtenerPuntaje(respuestas as List<Opcion>))
-    }
-
-    fun elegirRespuestasAPreguntaActual(respuestasElegidas: ArrayList<Opcion>) {
+    fun elegirRespuestasAPreguntaActual(respuestasElegidas: ArrayList<Respuesta>) {
         this.respuestasElegidas = respuestasElegidas
     }
 
     init {
         respuestasElegidas = ArrayList()
-        multiplicadorClase = MultiplicadorBasico()
     }
 }

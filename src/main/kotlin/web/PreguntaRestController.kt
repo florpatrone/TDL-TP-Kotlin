@@ -3,6 +3,7 @@ package web
 import com.Hoot.hoot.IPreguntaBusiness
 import javassist.NotFoundException
 import model.Pregunta
+import model.data.FormatoPregunta
 import model.excepciones.BusinessException
 import org.springframework.beans.factory.annotation.Autowired
 import org.springframework.http.HttpHeaders
@@ -22,7 +23,7 @@ class PreguntaRestController {
     val preguntaBusiness: IPreguntaBusiness? = null
 
     @GetMapping("")
-    fun list():ResponseEntity<List<Pregunta>>{
+    fun list():ResponseEntity<List<FormatoPregunta>>{
         return try {
             ResponseEntity(preguntaBusiness!!.list(), HttpStatus.OK)
         }catch (e:Exception){
@@ -31,7 +32,7 @@ class PreguntaRestController {
     }
 
     @GetMapping("/{id}")
-    fun load(@PathVariable("id") idPregunta:Long): ResponseEntity<Pregunta>{
+    fun load(@PathVariable("id") idPregunta:Long): ResponseEntity<FormatoPregunta>{
         return try{
             ResponseEntity(preguntaBusiness!!.load(idPregunta), HttpStatus.OK)
         }catch (e:BusinessException){
@@ -42,7 +43,7 @@ class PreguntaRestController {
     }
 
     @PostMapping("")
-    fun insert(@RequestBody pregunta: Pregunta): ResponseEntity<Any>{
+    fun insert(@RequestBody pregunta: FormatoPregunta): ResponseEntity<Any>{
 
         return try{
             preguntaBusiness!!.save(pregunta)
@@ -55,7 +56,7 @@ class PreguntaRestController {
     }
 
     @PutMapping
-    fun update(@RequestBody pregunta: Pregunta): ResponseEntity<Any>{
+    fun update(@RequestBody pregunta: FormatoPregunta): ResponseEntity<Any>{
         return try{
             preguntaBusiness!!.save(pregunta)
             ResponseEntity(HttpStatus.OK)
@@ -76,8 +77,4 @@ class PreguntaRestController {
             ResponseEntity(HttpStatus.NOT_FOUND)
         }
     }
-
-
-
-
 }

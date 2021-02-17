@@ -1,6 +1,5 @@
 package test.builder
 
-import model.builders.OrderedChoiceBuilder
 import model.data.OpcionSerializada
 import org.junit.jupiter.api.Assertions
 import org.junit.jupiter.api.Test

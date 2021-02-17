@@ -1,4 +1,4 @@
-package model
+package model.data
 
 import org.springframework.lang.NonNull
 import javax.persistence.Entity

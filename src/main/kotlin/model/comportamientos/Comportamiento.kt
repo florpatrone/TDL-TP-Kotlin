@@ -2,6 +2,7 @@ package model.comportamientos
 
 import java.util.*
 import model.*
+import model.data.Respuesta
 
 abstract class Comportamiento {
     fun correcto(puntaje: Puntaje) {

@@ -1,5 +1,7 @@
 package model
 
+import model.data.Respuesta
+
 class OpcionConjunto : Opcion {
     var claveElegida: String? = null
         private set

@@ -1,5 +1,6 @@
 package model
 
+import model.data.Respuesta
 import model.excepciones.ImposibleConvertirEnRespuestaException
 
 open class Opcion(val clave: String?, val textoOpcion: String?) {

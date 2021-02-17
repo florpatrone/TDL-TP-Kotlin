@@ -2,6 +2,7 @@ package com.Hoot.hoot
 
 import dao.PreguntaRepository
 import model.Pregunta
+import model.data.FormatoPregunta
 import org.springframework.beans.factory.annotation.Autowired
 import org.springframework.boot.CommandLineRunner
 import org.springframework.boot.autoconfigure.SpringBootApplication
@@ -15,7 +16,7 @@ class HootApplication:CommandLineRunner{
 
 	override fun run(vararg args: String?) {
 
-		val pregunta = Pregunta()
+		val pregunta = FormatoPregunta("vof", "hola como estas?")
 		preguntaRepository!!.save(pregunta)
 	}
 }

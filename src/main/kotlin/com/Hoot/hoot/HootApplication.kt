@@ -1,10 +1,24 @@
 package com.Hoot.hoot
 
+import dao.PreguntaRepository
+import model.Pregunta
+import org.springframework.beans.factory.annotation.Autowired
+import org.springframework.boot.CommandLineRunner
 import org.springframework.boot.autoconfigure.SpringBootApplication
 import org.springframework.boot.runApplication
 
 @SpringBootApplication
-class HootApplication
+class HootApplication:CommandLineRunner{
+
+	@Autowired
+	val preguntaRepository: PreguntaRepository? = null
+
+	override fun run(vararg args: String?) {
+
+		val pregunta = Pregunta()
+		preguntaRepository!!.save(pregunta)
+	}
+}
 
 fun main(args: Array<String>) {
 	runApplication<HootApplication>(*args)

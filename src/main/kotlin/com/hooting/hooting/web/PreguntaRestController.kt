@@ -1,6 +1,6 @@
 package com.hooting.hooting.web
 
-import com.hooting.hooting.business.IPreguntaBusiness
+import com.hooting.hooting.business.PreguntaService
 import com.hooting.hooting.excepciones.BusinessException
 import com.hooting.hooting.data.Pregunta
 import com.hooting.hooting.excepciones.NotFoundException
@@ -18,33 +18,34 @@ import java.lang.Exception
 class PreguntaRestController {
 
     @Autowired
-    val preguntaBusiness: IPreguntaBusiness? = null
+    val preguntaService: PreguntaService? = null
 
+    /*
     @GetMapping("")
     fun list():ResponseEntity<List<Pregunta>>{
         return try {
-            ResponseEntity(preguntaBusiness!!.list(), HttpStatus.OK)
+            ResponseEntity(preguntaService!!.list(), HttpStatus.OK)
         }catch (e:Exception){
             ResponseEntity(HttpStatus.INTERNAL_SERVER_ERROR)
         }
-    }
+    }*/
 
     @GetMapping("/{id}")
     fun load(@PathVariable("id") idPregunta:Long): ResponseEntity<Pregunta>{
         return try{
-            ResponseEntity(preguntaBusiness!!.load(idPregunta), HttpStatus.OK)
+            ResponseEntity(preguntaService!!.getPreguntaDetails(idPregunta), HttpStatus.OK)
         }catch (e: BusinessException){
             ResponseEntity(HttpStatus.INTERNAL_SERVER_ERROR)
         }catch (e: NotFoundException){
             ResponseEntity(HttpStatus.NOT_FOUND)
         }
     }
-
+/*
     @PostMapping("")
     fun insert(@RequestBody pregunta: Pregunta): ResponseEntity<Any>{
 
         return try{
-            preguntaBusiness!!.save(pregunta)
+            preguntaService!!.save(pregunta)
             val responseHeader = HttpHeaders()
             responseHeader.set("location", Constantes.URL_BASE_PREGUNTAS + "/" + pregunta.id)
             ResponseEntity(responseHeader, HttpStatus.CREATED)
@@ -56,7 +57,7 @@ class PreguntaRestController {
     @PutMapping
     fun update(@RequestBody pregunta: Pregunta): ResponseEntity<Any>{
         return try{
-            preguntaBusiness!!.save(pregunta)
+            preguntaService!!.save(pregunta)
             ResponseEntity(HttpStatus.OK)
         }catch(e: BusinessException){
             ResponseEntity(HttpStatus.INTERNAL_SERVER_ERROR)
@@ -67,12 +68,12 @@ class PreguntaRestController {
 
     fun delete(@PathVariable("id") idPregunta: Long): ResponseEntity<Any>{
         return try{
-            preguntaBusiness!!.remove(idPregunta)
+            preguntaService!!.remove(idPregunta)
             ResponseEntity(HttpStatus.OK)
         }catch (e:BusinessException){
             ResponseEntity(HttpStatus.INTERNAL_SERVER_ERROR)
         }catch (e: NotFoundException){
             ResponseEntity(HttpStatus.NOT_FOUND)
         }
-    }
+    }*/
 }

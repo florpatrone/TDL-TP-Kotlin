@@ -1,5 +1,6 @@
 package com.hooting.hooting
 
+import com.Hoot.hoot.model.Juego
 import com.hooting.hooting.business.PreguntaService
 import com.hooting.hooting.data.Pregunta
 import com.hooting.hooting.data.Respuesta
@@ -44,6 +45,8 @@ class HootingApplication :  CommandLineRunner {
 		preguntaService!!.savePreguntaDetails(pregunta)
 		preguntaService!!.savePreguntaDetails(pregunta2)
 		preguntaService!!.savePreguntaDetails(pregunta3)
+
+
 
 	}
 }

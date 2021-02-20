@@ -1,24 +1,20 @@
 package com.Hoot.hoot.model
 
 
-import com.hooting.hooting.data.Respuesta
-import java.util.*
+import com.hooting.hooting.model.Puntaje
 
 class Jugador(val nombre: String) {
-    var puntos = 0
-    var respuestasElegidas: ArrayList<Respuesta>
+
+    var puntaje: Puntaje = Puntaje()
     lateinit var jugadorSiguiente: Jugador
 
 
-    fun ganarPuntaje(puntaje: Int) {
-        puntos += puntaje
+    fun agregarMultiplicador(factor: Int) {
+        puntaje.agregarMultiplicador(factor)
     }
 
-    fun elegirRespuestasAPreguntaActual(respuestasElegidas: ArrayList<Respuesta>) {
-        this.respuestasElegidas = respuestasElegidas
+    fun sumarPuntos(puntaje: Int) {
+        this.puntaje.sumarPuntos(puntaje)
     }
 
-    init {
-        respuestasElegidas = ArrayList()
-    }
 }

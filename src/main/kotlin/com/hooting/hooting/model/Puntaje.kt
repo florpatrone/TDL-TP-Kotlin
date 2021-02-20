@@ -1,10 +1,17 @@
-package com.Hoot.hoot.model
+package com.hooting.hooting.model
 
-abstract class Puntaje {
-    var puntajeAcumulado = 0
-    var factor = 1
-    abstract fun accionCorrecta()
-    abstract fun accionIncorrecta()
-    internal abstract fun getPuntajeAcumulado(): Int
+class Puntaje {
+
+    var puntos: Int = 0
+    var factor: Int = 1
+
+    fun agregarMultiplicador(multiplicador: Int) {
+        factor = multiplicador
+    }
+
+    fun sumarPuntos(puntos: Int) {
+        this.puntos += puntos * factor
+        factor = 1
+    }
 
 }

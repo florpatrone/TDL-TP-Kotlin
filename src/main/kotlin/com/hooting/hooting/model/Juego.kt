@@ -2,6 +2,7 @@ package com.Hoot.hoot.model
 
 import com.hooting.hooting.data.Pregunta
 import com.hooting.hooting.data.Respuesta
+import com.hooting.hooting.model.ComparadorRespuestas
 import com.hooting.hooting.web.PreguntaRestController
 import kotlinx.coroutines.GlobalScope
 import kotlinx.coroutines.launch
@@ -14,10 +15,11 @@ class Juego : Observable {
     var preguntas: ArrayList<Pregunta>
     lateinit var iteradorPreguntas: Iterator<Pregunta>
     private val observers: ArrayList<Observer>
+    private val comparadorRespuestas: ComparadorRespuestas = ComparadorRespuestas()
     var preguntaRestController: PreguntaRestController = PreguntaRestController()
 
     fun traerPreguntas() {
-        //preguntas = preguntaRestController.list() as ArrayList<Pregunta>
+        preguntas = preguntaRestController.list() as ArrayList<Pregunta>
         iteradorPreguntas = preguntas.listIterator()
     }
 
@@ -45,11 +47,11 @@ class Juego : Observable {
             respuesta -> if(respuesta.isTrue == false) {
                 respuestasIncorrectas++
             }
+            if (comparadorRespuestas.compararRespuestas(preguntaActual,respuestasElegidas) == 1) {
+                jugadorActual.sumarPuntos(1)
+            }
+            else jugadorActual.sumarPuntos(-1)
         }
-        if (respuestasIncorrectas > 0) {
-            jugadorActual.sumarPuntos(-1)
-        }
-        else jugadorActual.sumarPuntos(1)
 
         return jugadorActual.jugadorSiguiente
     }

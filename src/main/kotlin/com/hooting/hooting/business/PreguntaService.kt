@@ -11,6 +11,14 @@ import java.util.concurrent.ExecutionException
 
 @Service
 class PreguntaService {
+
+    @Throws(InterruptedException::class, ExecutionException::class)
+    fun listPreguntas(): ArrayList<Pregunta> {
+        val dbFirestore: Firestore = FirestoreClient.getFirestore()
+        val preguntas: ArrayList<Pregunta> = dbFirestore.collection(COL_NAME).get().get().toObjects(Pregunta::class.java) as ArrayList<Pregunta>
+        return preguntas
+    }
+
     @Throws(InterruptedException::class, ExecutionException::class)
     fun savePreguntaDetails(pregunta: Pregunta): String {
         val dbFirestore: Firestore = FirestoreClient.getFirestore()

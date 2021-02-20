@@ -18,17 +18,17 @@ import java.lang.Exception
 class PreguntaRestController {
 
     @Autowired
-    val preguntaService: PreguntaService? = null
+    val preguntaService: PreguntaService = PreguntaService()
 
-    /*
+
     @GetMapping("")
     fun list():ResponseEntity<List<Pregunta>>{
         return try {
-            ResponseEntity(preguntaService!!.list(), HttpStatus.OK)
+            ResponseEntity(preguntaService!!.listPreguntas(), HttpStatus.OK)
         }catch (e:Exception){
             ResponseEntity(HttpStatus.INTERNAL_SERVER_ERROR)
         }
-    }*/
+    }
 
     @GetMapping("/{id}")
     fun load(@PathVariable("id") idPregunta:Long): ResponseEntity<Pregunta>{

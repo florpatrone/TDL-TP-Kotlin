@@ -6,7 +6,6 @@ import javax.persistence.GeneratedValue
 import javax.persistence.Id
 
 
-class Respuesta(val respuesta: String = "", val isTrue: Boolean = false) {
-
+data class Respuesta(val respuesta: String = "", var isTrue: Boolean = false) {
 
 }

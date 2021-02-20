@@ -38,9 +38,9 @@ class HootingApplication :  CommandLineRunner {
 		respuestas3.add(respuesta5)
 		respuestas3.add(respuesta6)
 
-		val pregunta = Pregunta("vof", "hola como estas?",0, respuestas)
-		val pregunta2 = Pregunta("vof", "El cielo es azul?",1, respuestas2)
-		val pregunta3 = Pregunta("vof", "Boca es el mas grande?",2, respuestas3)
+		val pregunta = Pregunta("vof", "hola como estas?",0, respuestas,1)
+		val pregunta2 = Pregunta("vof", "El cielo es azul?",1, respuestas2,1)
+		val pregunta3 = Pregunta("vof", "Boca es el mas grande?",2, respuestas3,1)
 
 		preguntaService!!.savePreguntaDetails(pregunta)
 		preguntaService!!.savePreguntaDetails(pregunta2)

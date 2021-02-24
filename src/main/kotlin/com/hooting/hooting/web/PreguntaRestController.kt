@@ -20,7 +20,6 @@ class PreguntaRestController {
     @Autowired
     val preguntaService: PreguntaService = PreguntaService()
 
-
     @GetMapping("")
     fun list():ResponseEntity<List<Pregunta>>{
         return try {
